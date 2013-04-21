@@ -7,9 +7,9 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity clk_div is
-    Port ( --reset : in  STD_LOGIC;
+    Port ( reset : in  STD_LOGIC;
            clk_50M : in  STD_LOGIC;
-           clk_1hz : out  STD_LOGIC);
+           clk_100khz : out  STD_LOGIC);
 end clk_div;
 
 architecture Behavioral of clk_div is
@@ -21,12 +21,12 @@ begin
 ----- Method 1: use internal signal count_1
 	process(clk_50M,count_1)
 	begin
---		if (reset = '1') then
---				clk_int <= '0';
---				count_1 <= 0;
-		if ( clk_50M'event and clk_50M = '1') then --rising or falling
+		if (reset = '1') then
+			clk_int <= '0';
+			count_1 <= 0;
+		elsif ( clk_50M'event and clk_50M = '1') then --rising or falling
 				count_1 <=  count_1 + 1;			
-				if ( count_1 = 249  ) then ----1 Hz  ( not 250)
+				if ( count_1 = 249  ) then ----100 kHz  ( not 250)
 					count_1 <= 0;
 					clk_int <= not clk_int;
 				end if;	  
@@ -52,6 +52,6 @@ begin
 --end process;
 
 ---------------------------------
-clk_1hz <= clk_int;
+clk_100khz <= clk_int;
 
 end Behavioral;

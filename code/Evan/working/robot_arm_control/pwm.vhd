@@ -33,18 +33,18 @@ entity pwm is
 
 port(
 		clk         : in    std_logic;
-		reset         : in    std_logic;
+		reset       : in    std_logic;
 		pwm_on_in   : in    std_logic_vector(31 downto 0);
-                pwm_out     : out   std_logic              
+      pwm_out     : out   std_logic              
     );
 
 end pwm;
 
 architecture Behavioral of pwm is
 
-signal num_clks     : unsigned(31 downto 0) := x"00000000"; --1073741824
-signal pwm_width    : unsigned(31 downto 0) := x"0000C350"; --Default to 1ms=50000
-signal pulse_period : unsigned(31 downto 0) := x"000F423F"; --Wait > 20ms 1000000
+signal num_clks     : unsigned(7 downto 0) := x"0000"; --1073741824
+signal pwm_width    : unsigned(7 downto 0) := x"C350"; --Default to 1ms=50000
+signal pulse_period : unsigned(7 downto 0) := x"000F423F"; --Wait > 20ms 1000000
  
  
 begin
