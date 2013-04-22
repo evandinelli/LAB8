@@ -1,2 +1,1 @@
-work	"clk_div.vhd"
-work	"clk_div_tb.vhd"
+work	"pwm.vhd"

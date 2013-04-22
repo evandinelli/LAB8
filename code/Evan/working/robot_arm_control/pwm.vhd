@@ -23,7 +23,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -43,33 +43,34 @@ end pwm;
 
 architecture Behavioral of pwm is
 
-signal num_clks     : integer range 0 to 999999 :=0;
-signal pwm_width    : integer range 149 to 194  :=0;
-signal pulse_period : integer range 0 to 999999 :=0;
+-- Declare internal signals
+signal num_clks     : unsigned(31 downto 0) := x"00000000"; --1073741824
+signal pwm_width    : unsigned(31 downto 0) := x"00000095"; --Default to 1ms=50000
+signal pulse_period : unsigned(31 downto 0) := x"000007CF"; --Wait > 20ms 1000000
 
 begin
-pulse_period <= 999999;        --20ms period
-pwm_width <= 149; --CONV_INTEGER(pwm_on_in);   
+pulse_period <= x"000007CF";        --20ms period
+pwm_width <= x"00000095"; --unsigned(pwm_on_in);   
  
-process(clk, reset)
-	begin
-		if(reset = '0') then
-			num_clks <= (others => '0');
-			pwm_out <= '0';
-		elsif(rising_edge(clk)) then
-			if (num_clks < pwm_width) then
-			  pwm_out <= '1';
-			  else 
-			  pwm_out <= '0';
+	process(clk, reset)
+		begin
+			if(reset = '0') then
+                num_clks <= (others => '0');
+                pwm_out <= '0';
+            elsif(rising_edge(clk)) then
+                if (num_clks < pwm_width) then
+                    pwm_out <= '1';
+                    else 
+                    pwm_out <= '0';
+                end if;
+				
+                if(num_clks >= pulse_period) then
+					num_clks <= (others => '0');
+				else
+					num_clks <= num_clks + 1;
+				end if;
 			end if;
-			
-			if(num_clks >= pulse_period) then
-				num_clks <= (others => '0');
-		else
-			num_clks <= num_clks + 1;
-			end if;
-		end if;
-end process;
+	end process;
 
 
 end Behavioral;
