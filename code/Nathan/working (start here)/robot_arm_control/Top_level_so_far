@@ -1,0 +1,49 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: Nathan Ruetten
+-- Create Date:    19:58:00 04/15/2013 
+-- Design Name:    
+-- Module Name:    Top level - Behavioral 
+-- Project Name:   Robot Arm Control
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity PWM is
+port    ( clk_out: in std_logic; 
+  		 Data: in std_logic_vector(7 downto 0);
+			 tickII	: out std_logic; --led 0
+			 tickIOO	: out std_logic; --led 1
+			 PWM_sig_pan: out std_logic;
+			 PWM_sig_tilt: out std_logic;
+			 PWM_sig_temp_pan: out std_logic;
+			 PWM_sig_temp_tilt: out std_logic
+			 ); 
+end PWM;
+
+architecture Behavioral of PWM is
+
+begin
+
+
+end Behavioral;
+
