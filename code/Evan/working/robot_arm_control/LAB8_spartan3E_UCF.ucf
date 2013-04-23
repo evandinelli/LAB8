@@ -1,0 +1,57 @@
+### UCF file for ECE120 Lab 8
+### copy and paste the following constraints to the .ucf file in your design.
+### change net names accordingly.
+
+NET "clk_in" PERIOD = 20.0ns HIGH 50%; 
+NET "clk_in" LOC = "C9" | IOSTANDARD = LVCMOS33 ;
+
+# ==== Pushbuttons (BTN) ====
+#NET "BTN_EAST" LOC = "H13" | IOSTANDARD = LVTTL | PULLDOWN ; ## BTN_EAST
+#NET "BTN_NORTH" LOC = "V4" | IOSTANDARD = LVTTL | PULLDOWN ; ## BTN_NORTH
+NET "reset" LOC = "K17" | IOSTANDARD = LVTTL | PULLDOWN ;## BTN_SOUTH (reset_pwm? reset_sys?)
+#NET "BTN_WEST" LOC = "D18" | IOSTANDARD = LVTTL | PULLDOWN ; ## BTN_WEST 
+
+
+### For ECE120 Lab 8 ( J4 6-pin accessor header on board)
+### pin numbers are (see on-board labels)
+ ##IO9  : D7 
+ ##IO10 : C7
+ ##IO10 : F8
+ #IO10 : E8
+NET "pwm_out" LOC = "D7" | IOSTANDARD = LVCMOS33 | SLEW = FAST | DRIVE = 8 ; ## Pan_out
+#NET "tilt_out" LOC = "C7" | IOSTANDARD = LVCMOS33 | SLEW = FAST | DRIVE = 8 ; ##Tilt_out
+
+
+# ==== Slide Switches (SW) ====
+#NET "SW<0>" LOC = "L13" | IOSTANDARD = LVTTL | PULLUP ; # SW<0>
+#NET "SW<1>" LOC = "L14" | IOSTANDARD = LVTTL | PULLUP ; # SW<1>
+#NET "SW<2>" LOC = "H18" | IOSTANDARD = LVTTL | PULLUP ; # SW<2>
+#NET "SW<3>" LOC = "N17" | IOSTANDARD = LVTTL | PULLUP ; # SW<3>
+
+
+# ==== Discrete LEDs (LED) ====
+#NET "LED<0>" LOC = "F12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ;##LED0
+#NET "LED<1>" LOC = "E12" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ;## LED1
+#NET "LED<2>" LOC = "E11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ;## LED2
+#NET "LED<3>" LOC = "F11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ;## LED3
+#NET "LED<4>" LOC = "C11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ;## LED4
+#NET "LED<5>" LOC = "D11" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ;## LED5
+#NET "LED<6>" LOC = "E9" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ;## LED6
+#NET "LED<7>" LOC = "F9" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8 ;## LED7
+
+
+# ==== Rotary Pushbutton Switch (ROT) ====
+#NET "ROT_A" LOC = "K18" | IOSTANDARD = LVTTL | PULLUP ; ## Rotary A
+#NET "ROT_B" LOC = "G18" | IOSTANDARD = LVTTL | PULLUP ; ## Rotary B
+#NET "ROT_CENTER" LOC = "V16" | IOSTANDARD = LVTTL | PULLDOWN ; ## Rotary Center
+
+
+# ==== Character LCD (LCD) ====
+#NET "LCD_E" LOC = "M18" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ; # LCD_E
+#NET "LCD_RS" LOC = "L18" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ; # LCD_RS
+#NET "LCD_RW" LOC = "L17" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ; # LCD_RW
+# LCD data connections are shared with StrataFlash connections SF_D<11:8>
+#NET "SF_D<8>" LOC = "R15" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ; ##SF_D<8>
+#NET "SF_D<9>" LOC = "R16" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;##SF_D<9>
+#NET "SF_D<10>" LOC = "P17" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;##SF_D<10>
+#NET "SF_D<11>" LOC = "M15" | IOSTANDARD = LVCMOS33 | DRIVE = 4 | SLEW = SLOW ;##SF_D<11>

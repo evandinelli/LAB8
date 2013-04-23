@@ -1,0 +1,3 @@
+vhdl work "C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\pwm.vhd"
+vhdl work "C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\clk_div.vhd"
+vhdl work "C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\TOP_clk_and_pwm.vhd"

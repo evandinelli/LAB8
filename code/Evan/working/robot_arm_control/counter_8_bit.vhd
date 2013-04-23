@@ -32,38 +32,52 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity counter_8_bit is
 	Port (
-			clk_in : in  STD_LOGIC;
-          pause : in  STD_LOGIC;
-          load  : in  STD_LOGIC;
-			 inc   : in  STD_LOGIC;
-          reset : in  STD_LOGIC;
-			 count_out : out  std_logic_vector(7 downto 0));
+			clk_in : in STD_LOGIC;
+          pause : in STD_LOGIC;
+			 inc   : in STD_LOGIC;
+          reset : in STD_LOGIC;
+			 load  : in STD_LOGIC;
+			 load_vec  : in STD_LOGIC_VECTOR(7 downto 0);
+			 count_out : out STD_LOGIC_VECTOR(7 downto 0));
 
 end counter_8_bit;
 
 architecture Behavioral of counter_8_bit is
 
-signal count: std_logic_vector(7 downto 0) := "00000000";
+signal count_temp: std_logic_vector(7 downto 0) := x"96";
 
 begin
 
-process (clk_in,reset,pause,load,inc,count)
+process (clk_in,reset,pause,load,inc,count_temp)
 	begin
-		if (reset = '1') then ---asyn. reset
-			count <= "00000000";
-		elsif (clk_in = '1' and clk_in'event) then
-				if(pause = '1') then  ---check pause first
-					count <= count;
-				else
-					if(inc = '1' and load = '1') then
-						count <= count +1;
-					else
-						count <= count;
-					end if;
-				end if;
+		if (rising_edge(clk_in)) then
+			if (reset = '1') then ---sync. reset
+				--if (count_temp /= x"96") then
+					count_temp <= x"96";
+				--else
+					--count_temp <= count_temp;
+				--end if;
+			elsif(pause = '1') then  ---check pause first
+				count_temp <= count_temp;	
+			elsif (load = '1') then
+				count_temp <= load_vec;
+			elsif (inc = '1') then
+				--if (count_temp = x"C3") then
+				--	count_temp <= count_temp - 3; -- back 3 degrees
+				--else
+				  if (count_temp = x"c3") then
+				      count_temp <= x"69"; -----
+				  else
+					count_temp <= count_temp + 3;
+				  end if;
+				--end if;	
+			else
+				count_temp <= count_temp;
+			end if;
 		end if;
+		
 	end process;
 	
-count_out <= count;
+count_out <= count_temp;
 
 end Behavioral;

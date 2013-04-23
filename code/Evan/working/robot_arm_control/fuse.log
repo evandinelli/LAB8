@@ -1,21 +1,21 @@
-Running: C:\Xilinx\12.1\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/counter_tb_isim_beh.exe -prj C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/counter_tb_beh.prj work.counter_tb 
+Running: C:\Xilinx\12.1\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/pwm_tb_isim_beh.exe -prj C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/pwm_tb_beh.prj work.pwm_tb 
 ISim M.53d (signature 0x7dea747)
-Number of CPUs detected in this system: 8
-Turning on mult-threading, number of parallel sub-compilation jobs: 16 
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/counter_8_bit.vhd" into library work
-Parsing VHDL file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/counter_tb.vhd" into library work
+Parsing VHDL file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/pwm.vhd" into library work
+Parsing VHDL file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/pwm_tb.vhd" into library work
 Starting static elaboration
 Completed static elaboration
 Using precompiled package standard from library std
 Using precompiled package std_logic_1164 from library ieee
 Using precompiled package std_logic_arith from library ieee
 Using precompiled package std_logic_unsigned from library ieee
-Compiling architecture behavioral of entity counter_8_bit [counter_8_bit_default]
-Compiling architecture behavior of entity counter_tb
+Using precompiled package numeric_std from library ieee
+Compiling architecture behavioral of entity pwm [pwm_default]
+Compiling architecture behavior of entity pwm_tb
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
-Compiled 7 VHDL Units
-Built simulation executable C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/counter_tb_isim_beh.exe
-Fuse Memory Usage: 20180 KB
-Fuse CPU Usage: 140 ms
+Compiled 8 VHDL Units
+Built simulation executable C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/pwm_tb_isim_beh.exe
+Fuse Memory Usage: 19680 KB
+Fuse CPU Usage: 935 ms

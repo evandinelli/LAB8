@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\Toplevel.ncd
+OUTFILE=C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\Toplevel.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control
+LICENSE=WebPack
+USER_INFO=210664687_0_0_779

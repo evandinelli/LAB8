@@ -33,10 +33,10 @@ use IEEE.NUMERIC_STD.ALL;
 entity pwm is
 
 port(
-		clk         : in    std_logic;
-		reset       : in    std_logic;
-		--pwm_on_in   : in    std_logic_vector(7 downto 0);
-      pwm_out     : out   std_logic              
+		clk       : in std_logic;
+		reset     : in std_logic;
+		pwm_on_in : in std_logic_vector(11 downto 0) := x"095";
+      pwm_out   : out std_logic              
     );
 
 end pwm;
@@ -44,14 +44,14 @@ end pwm;
 architecture Behavioral of pwm is
 
 -- Declare internal signals
-signal num_clks     : unsigned(31 downto 0) := x"00000000"; --1073741824
-signal pwm_width    : unsigned(31 downto 0) := x"00000095"; --Default to 1ms=50000
-signal pulse_period : unsigned(31 downto 0) := x"000007CF"; --Wait > 20ms 1000000
+signal num_clks     : unsigned(11 downto 0) := x"000";
+signal pwm_width    : unsigned(11 downto 0) := x"095";
+signal pulse_period : unsigned(11 downto 0) := x"7CF"; --Wait > 20ms 9999999
 
 begin
-pulse_period <= x"000007CF";        --20ms period
-pwm_width <= x"00000095"; --unsigned(pwm_on_in);   
- 
+pulse_period <= x"7CF";        --20ms period
+pwm_width <= unsigned(pwm_on_in);
+
 	process(clk, reset)
 		begin
 			if(reset = '0') then
@@ -72,6 +72,4 @@ pwm_width <= x"00000095"; --unsigned(pwm_on_in);
 			end if;
 	end process;
 
-
 end Behavioral;
-
