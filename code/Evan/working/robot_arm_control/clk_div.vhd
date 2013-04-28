@@ -7,7 +7,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity clk_div is
-    Port ( reset : in  STD_LOGIC;
+    Port ( reset : in  STD_LOGIC; 
            clk_50M : in  STD_LOGIC;
            clk_100khz : out  STD_LOGIC);
 end clk_div;

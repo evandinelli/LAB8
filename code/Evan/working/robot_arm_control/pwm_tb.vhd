@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer:
 --
--- Create Date:   21:58:07 04/21/2013
+-- Create Date:   17:29:24 04/28/2013
 -- Design Name:   
 -- Module Name:   C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/pwm_tb.vhd
 -- Project Name:  robot_arm_control
@@ -43,7 +43,9 @@ ARCHITECTURE behavior OF pwm_tb IS
     PORT(
          clk : IN  std_logic;
          reset : IN  std_logic;
-         pwm_out : OUT  std_logic
+         pwm_out : OUT  std_logic;
+         tick20 : OUT  std_logic;
+         tick100 : OUT  std_logic
         );
     END COMPONENT;
     
@@ -54,6 +56,8 @@ ARCHITECTURE behavior OF pwm_tb IS
 
  	--Outputs
    signal pwm_out : std_logic;
+   signal tick20 : std_logic;
+   signal tick100 : std_logic;
 
    -- Clock period definitions
    constant clk_period : time := 10 us;
@@ -64,7 +68,9 @@ BEGIN
    uut: pwm PORT MAP (
           clk => clk,
           reset => reset,
-          pwm_out => pwm_out
+          pwm_out => pwm_out,
+          tick20 => tick20,
+          tick100 => tick100
         );
 
    -- Clock process definitions
@@ -81,10 +87,7 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
-      wait for 100 ns;
-		
-		reset <= '0';
-		wait for 100 ns;
+
 		reset <= '1';
 
       -- insert stimulus here 

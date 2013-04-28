@@ -1,1 +1,3 @@
-work	"counter_8_bit.vhd"
+work	"../../../../Toplevel.vhd"
+work	"clk_div.vhd"
+work	"pwm.vhd"

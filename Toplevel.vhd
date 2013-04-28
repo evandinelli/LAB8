@@ -62,22 +62,24 @@ COMPONENT pwm
     PORT(
          clk : IN  std_logic;
          reset : IN  std_logic;
-			pwm_on_in : in std_logic_vector(11 downto 0);
-         pwm_out : OUT  std_logic
+			--pwm_on_in : in std_logic_vector(11 downto 0);
+         pwm_out : OUT  std_logic;
+			tick20    : out std_logic :='0'; --falling edge is 20 ms tick
+			tick100   : out std_logic :='0'  --Not sure if it works!
         );
     END COMPONENT;
 
 begin
 
 u1: clk_div port map(
-	  clk_50M=>clk_in,
+	clk_50M=>clk_in,
 	reset => reset,
 	clk_100khz => clk_temp
 	);
 	
 u2: PWM port map(
 	clk => clk_temp,
-	pwm_on_in => int_pwm_width,
+	--pwm_on_in => int_pwm_width,
 	pwm_out => pwm_out,
 	reset => reset
 	);

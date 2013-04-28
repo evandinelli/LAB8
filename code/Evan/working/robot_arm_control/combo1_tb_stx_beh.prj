@@ -1,0 +1,4 @@
+vhdl isim_temp "pwm.vhd"
+vhdl isim_temp "clk_div.vhd"
+vhdl isim_temp "../../../../Toplevel.vhd"
+vhdl isim_temp "combo1_tb.vhd"
