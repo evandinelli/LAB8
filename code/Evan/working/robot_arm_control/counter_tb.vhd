@@ -91,13 +91,13 @@ BEGIN
    begin		
       -- hold reset state for 100 ns.
       wait for 100 us;
-		load <= '1';
+		load <= '0';
 		inc <= '1';
 		
-		wait for 500 us;
+		wait for 100 us;
 		pause <= '1';
 		
-		wait for 500 us;
+		wait for 100 us;
 		pause <= '0';
 
       --wait for clk_in_period*10;

@@ -1,4 +1,0 @@
-vhdl work "pwm.vhd"
-vhdl work "clk_div.vhd"
-vhdl work "../../../../Toplevel.vhd"
-vhdl work "combo1_tb.vhd"

@@ -19,11 +19,12 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.STD_LOGIC_SIGNED.ALL;
+--use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -37,47 +38,43 @@ entity counter_8_bit is
 			 inc   : in STD_LOGIC;
           reset : in STD_LOGIC;
 			 load  : in STD_LOGIC;
-			 load_vec  : in STD_LOGIC_VECTOR(7 downto 0);
-			 count_out : out STD_LOGIC_VECTOR(7 downto 0));
+			 load_vec  : in STD_LOGIC_VECTOR(7 downto 0) := x"96";
+			 count_out : out STD_LOGIC_VECTOR(7 downto 0)
+			 );
 
 end counter_8_bit;
 
 architecture Behavioral of counter_8_bit is
 
-signal count_temp: std_logic_vector(7 downto 0) := x"96";
+signal count_temp : integer range 105 to 195 := 150;
+signal load_int   : integer range 105 to 195 := 150;
 
 begin
+load_int <= CONV_INTEGER(load_vec);
 
 process (clk_in,reset,pause,load,inc,count_temp)
 	begin
-		if (rising_edge(clk_in)) then
-			if (reset = '1') then ---sync. reset
-				--if (count_temp /= x"96") then
-					count_temp <= x"96";
-				--else
-					--count_temp <= count_temp;
-				--end if;
-			elsif(pause = '1') then  ---check pause first
+		if(reset = '1') then --async. reset
+			count_temp <= 150;
+		elsif(rising_edge(clk_in)) then
+			if(pause = '1') then  --check pause first
 				count_temp <= count_temp;	
-			elsif (load = '1') then
-				count_temp <= load_vec;
-			elsif (inc = '1') then
-				--if (count_temp = x"C3") then
-				--	count_temp <= count_temp - 3; -- back 3 degrees
-				--else
-				  if (count_temp = x"c3") then
-				      count_temp <= x"69"; -----
-				  else
+			elsif(load = '1') then
+				count_temp <= load_int;
+			elsif(inc = '1') then
 					count_temp <= count_temp + 3;
-				  end if;
-				--end if;	
-			else
-				count_temp <= count_temp;
 			end if;
+		
+			if(count_temp >= 195) then
+				count_temp <= 150;
+			end if;
+				
+		else
+			count_temp <= count_temp;
 		end if;
 		
 	end process;
 	
-count_out <= count_temp;
+count_out <= std_logic_vector(to_unsigned(count_temp,8));
 
 end Behavioral;
