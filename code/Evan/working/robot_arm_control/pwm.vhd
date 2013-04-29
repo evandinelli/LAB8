@@ -47,7 +47,7 @@ architecture Behavioral of pwm is
 
 -- Declare internal signals
 signal num_clks        : unsigned(11 downto 0) := x"000";
-signal num_clks100     : unsigned(11 downto 0) := x"000";
+signal num_clks100     : unsigned(15 downto 0) := x"0000";
 signal pwm_width       : unsigned(11 downto 0) := x"095";
 signal pulse_period    : unsigned(11 downto 0) := x"7CF";  --Wait > 20ms  1999
 signal pulse_period100 : unsigned(15 downto 0) := x"270F"; --Wait > 100ms 9999  270F
@@ -83,7 +83,8 @@ pwm_width <= x"095"; --<= unsigned(pwm_on_in);
 					else
 						num_clks100 <= num_clks100 + 1;
 						tick100 <= '0';
-				end if;
+					end if;
+					
 			end if;
 	end process;
 
