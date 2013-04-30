@@ -1,0 +1,2 @@
+vhdl work "mode_generator.vhd"
+vhdl work "mode_generator_tb.vhd"

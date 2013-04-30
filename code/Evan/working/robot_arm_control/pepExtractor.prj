@@ -1,4 +1,1 @@
-work	"clk_div.vhd"
-work	"combo2.vhd"
-work	"counter_8_bit.vhd"
-work	"pwm.vhd"
+work	"mode_generator.vhd"

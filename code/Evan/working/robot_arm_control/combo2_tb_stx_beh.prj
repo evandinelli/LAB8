@@ -1,5 +1,0 @@
-vhdl isim_temp "pwm.vhd"
-vhdl isim_temp "counter_8_bit.vhd"
-vhdl isim_temp "clk_div.vhd"
-vhdl isim_temp "combo2.vhd"
-vhdl isim_temp "combo2_tb.vhd"

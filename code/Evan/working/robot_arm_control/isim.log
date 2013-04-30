@@ -1,5 +1,5 @@
 ISim log file
-Running: C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\combo2_tb_isim_beh.exe -gui -tclbatch isim.cmd -wdb C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo2_tb_isim_beh.wdb 
+Running: C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\mode_generator_tb_isim_beh.exe -gui -tclbatch isim.cmd -wdb C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/mode_generator_tb_isim_beh.wdb 
 ISim M.53d (signature 0x7dea747)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -12,4 +12,4 @@ Time resolution is 1 ps
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
 # run all
-Stopped at time : 1055838370 ns : File "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo2_tb.vhd" Line 81
+Stopped at time : 61917010 us : File "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/mode_generator.vhd" Line 56

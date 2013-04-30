@@ -1,5 +1,0 @@
-vhdl work "pwm.vhd"
-vhdl work "counter_8_bit.vhd"
-vhdl work "clk_div.vhd"
-vhdl work "combo2.vhd"
-vhdl work "combo2_tb.vhd"

@@ -1,3 +1,0 @@
-vhdl work "pwm.vhd"
-vhdl work "clk_div.vhd"
-vhdl work "TOP_clk_and_pwm.vhd"
