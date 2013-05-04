@@ -35,7 +35,7 @@ entity pwm is
 port(
 	clk       : in std_logic;
 	reset     : in std_logic; --logic high
-	--pwm_on_in : in std_logic_vector(11 downto 0) := x"095";
+	pwm_on_in : in std_logic_vector(7 downto 0);
 	pwm_out   : out std_logic;
 	tick20    : out std_logic :='0'; --falling edge is 20 ms tick
 	tick100   : out std_logic :='0'  --Not sure if it works!
@@ -55,13 +55,17 @@ signal pulse_period100 : unsigned(15 downto 0) := x"270F"; --Wait > 100ms 9999  
 begin
 --pulse_period <= x"7CF";        --20ms period
 --pulse_period100 <= x"270F";
+<<<<<<< HEAD
 pwm_width <= unsigned(pwm_on_in);
+=======
+pwm_width <= unsigned("0000"&pwm_on_in);
+>>>>>>> Mode Generator and counter fixed
 
 	process(clk, reset)
 		begin
 			if(reset = '1') then
                 num_clks <= (others => '0');
-                pwm_out <= '0';
+                pwm_out <= '1';
 					 
             elsif(rising_edge(clk)) then
 					if (num_clks < pwm_width) then

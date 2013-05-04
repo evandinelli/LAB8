@@ -59,7 +59,7 @@ COMPONENT pwm
     PORT(
          clk : IN  std_logic;
          reset : IN  std_logic;
-			--pwm_on_in : in std_logic_vector(11 downto 0);
+			pwm_on_in : in std_logic_vector(7 downto 0);
          pwm_out : OUT  std_logic;
 			tick20    : out std_logic :='0'; --falling edge is 20 ms tick
 			tick100   : out std_logic :='0'  --Not sure if it works!
@@ -81,6 +81,7 @@ END COMPONENT;
 signal clk_temp  : std_logic := '0';
 signal int_pwm_width    : std_logic_vector(11 downto 0) := x"095";
 signal tick_100 : std_logic := '0';
+signal pwm_temp : std_logic_vector(7 downto 0) := "00000000";
 
 begin
 
@@ -92,7 +93,7 @@ u1: clk_div port map(
 	
 u2: PWM port map(
 	clk => clk_temp,
-	--pwm_on_in => int_pwm_width,
+	pwm_on_in => pwm_temp,
 	pwm_out => pwm_out,
 	reset => reset,
 	tick100 => tick_100
@@ -103,7 +104,7 @@ u3: counter_8_bit port map(
 	clk_in => clk_temp,
 	reset => reset,
 	pause => pause,
-	count_out => count_out,
+	count_out => pwm_temp,
 	load => '0'
 );
 
