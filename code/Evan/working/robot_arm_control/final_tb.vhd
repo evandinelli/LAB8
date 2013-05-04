@@ -90,31 +90,31 @@ BEGIN
 		SW <= "0000";
 		
       wait for 30 ms;
-		SW <= "0010";
+		SW <= "1010";
 		
-		wait for 30 ms;
-		SW <= "0011";
-		
-		wait for 30 ms;
-		SW <= "0100";
-		
-		wait for 30 ms;
-		SW <= "0101";
-		
-		wait for 30 ms;
-		SW <= "0110";
-		
-		wait for 30 ms;
-		SW <= "0111";
-		
-		wait for 30 ms;
-		SW <= "1000";
-		
-		wait for 30 ms;
-		SW <= "1001";
-		
-		wait for 30 ms;
-		SW <= "1011";
+--		wait for 30 ms;
+--		SW <= "0011";
+--		
+--		wait for 30 ms;
+--		SW <= "0100";
+--		
+--		wait for 30 ms;
+--		SW <= "0101";
+--		
+--		wait for 30 ms;
+--		SW <= "0110";
+--		
+--		wait for 30 ms;
+--		SW <= "0111";
+--		
+--		wait for 30 ms;
+--		SW <= "1000";
+--		
+--		wait for 30 ms;
+--		SW <= "1001";
+--		
+--		wait for 30 ms;
+--		SW <= "1011";
 
       wait;
    end process;

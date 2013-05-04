@@ -66,6 +66,7 @@ COMPONENT counter_8_bit
 			clk_in : in STD_LOGIC;
           pause : in STD_LOGIC;
 			 inc   : in STD_LOGIC;
+			 inc_by : in STD_LOGIC_VECTOR(2 downto 0) := "011";
           reset : in STD_LOGIC;
 			 load  : in STD_LOGIC;
 			 load_vec  : in STD_LOGIC_VECTOR(7 downto 0) := x"96";
@@ -85,14 +86,26 @@ COMPONENT mode_generator
 			  tilt_load: out std_logic;
 			  tilt_load_v: out std_logic_vector(7 downto 0)
 			  );
-END COMPONENT;			  
+END COMPONENT;
+
+COMPONENT dual_sweep
+	PORT (
+			clk_in : in  STD_LOGIC;
+			switch : in  STD_LOGIC_VECTOR (3 downto 0);
+			pan_count_in  : in  STD_LOGIC_VECTOR (7 downto 0);
+			tilt_100_temp : in STD_LOGIC;
+			tilt_inc : out STD_LOGIC;
+         inc_by   : out STD_LOGIC_VECTOR(2 downto 0) :="011"
+			);
+END COMPONENT;		  
 
 signal clk_temp  : std_logic := '0';
 signal pan_tick_100,tilt_tick_100 : std_logic := '0';
 signal pan_pwm_in, tilt_pwm_in : std_logic_vector(7 downto 0) := x"96";
-signal pan_p, tilt_p, pan_l, tilt_l : std_logic := '0';
+signal pan_p, tilt_p, pan_l, tilt_l, tilt_inc_temp : std_logic := '0';
 signal pan_load_vec, tilt_load_vec : std_logic_vector(7 downto 0);
 signal tick_20, tick2_20 : std_logic := '0';
+signal inc_temp : std_logic_vector(2 downto 0);
 
 begin
 
@@ -127,17 +140,19 @@ pan_count: counter_8_bit port map(
 			pause => pan_p,
 			count_out => pan_pwm_in,
 			load => pan_l,
-			load_vec => pan_load_vec
+			load_vec => pan_load_vec,
+			inc_by => "011"
 );
 
 tilt_count: counter_8_bit port map(
-			inc => tilt_tick_100,
+			inc => tilt_inc_temp,
 			clk_in => clk_temp,
 			reset => reset,
 			pause => tilt_p,
 			count_out => tilt_pwm_in,
 			load => tilt_l,
-			load_vec => tilt_load_vec
+			load_vec => tilt_load_vec,
+			inc_by => inc_temp
 );
 
 mode_gen : mode_generator port map(
@@ -151,6 +166,15 @@ mode_gen : mode_generator port map(
 					tilt_load => tilt_l,
 					tilt_load_v => tilt_load_vec
 
+);
+
+dual : dual_sweep port map(
+					clk_in => clk_temp,
+					switch => SW,
+					pan_count_in => pan_pwm_in,
+					tilt_inc => tilt_inc_temp,
+					inc_by => inc_temp,
+					tilt_100_temp => tilt_tick_100
 );
 
 end Behavioral;
