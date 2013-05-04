@@ -1,2 +1,0 @@
-vhdl isim_temp "mode_generator.vhd"
-vhdl isim_temp "mode_generator_tb.vhd"

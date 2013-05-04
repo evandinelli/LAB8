@@ -18,15 +18,15 @@ NET "reset" LOC = "K17" | IOSTANDARD = LVTTL | PULLDOWN ;## BTN_SOUTH (reset_pwm
  ##IO10 : C7
  ##IO10 : F8
  #IO10 : E8
-NET "pwm_out" LOC = "D7" | IOSTANDARD = LVCMOS33 | SLEW = FAST | DRIVE = 8 ; ## Pan_out
-NET "pwm_out" LOC = "C7" | IOSTANDARD = LVCMOS33 | SLEW = FAST | DRIVE = 8 ; ##Tilt_out
+NET "pan_pwm_out" LOC = "D7" | IOSTANDARD = LVCMOS33 | SLEW = FAST | DRIVE = 8 ; ## Pan_out
+NET "tilt_pwm_out" LOC = "C7" | IOSTANDARD = LVCMOS33 | SLEW = FAST | DRIVE = 8 ; ##Tilt_out
 
 
 # ==== Slide Switches (SW) ====
-#NET "SW<0>" LOC = "L13" | IOSTANDARD = LVTTL | PULLUP ; # SW<0>
-#NET "SW<1>" LOC = "L14" | IOSTANDARD = LVTTL | PULLUP ; # SW<1>
-#NET "SW<2>" LOC = "H18" | IOSTANDARD = LVTTL | PULLUP ; # SW<2>
-#NET "SW<3>" LOC = "N17" | IOSTANDARD = LVTTL | PULLUP ; # SW<3>
+NET "SW<0>" LOC = "L13" | IOSTANDARD = LVTTL | PULLUP ; # SW<0>
+NET "SW<1>" LOC = "L14" | IOSTANDARD = LVTTL | PULLUP ; # SW<1>
+NET "SW<2>" LOC = "H18" | IOSTANDARD = LVTTL | PULLUP ; # SW<2>
+NET "SW<3>" LOC = "N17" | IOSTANDARD = LVTTL | PULLUP ; # SW<3>
 
 
 # ==== Discrete LEDs (LED) ====

@@ -1,0 +1,573 @@
+Release 12.1 - xst M.53d (nt64)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> Reading design: combo3.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "combo3.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "combo3"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : combo3
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : lut
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : YES
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : YES
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Library Search Order               : combo3.lso
+Keep Hierarchy                     : NO
+Netlist Hierarchy                  : as_optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/clk_div.vhd" in Library work.
+Architecture behavioral of Entity clk_div is up to date.
+Compiling vhdl file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/pwm.vhd" in Library work.
+Architecture behavioral of Entity pwm is up to date.
+Compiling vhdl file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/counter_8_bit.vhd" in Library work.
+Architecture behavioral of Entity counter_8_bit is up to date.
+Compiling vhdl file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/mode_generator.vhd" in Library work.
+Architecture behavioral of Entity mode_generator is up to date.
+Compiling vhdl file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.vhd" in Library work.
+Entity <combo3> compiled.
+Entity <combo3> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <combo3> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <clk_div> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <pwm> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <counter_8_bit> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <mode_generator> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <combo3> in library <work> (Architecture <behavioral>).
+Entity <combo3> analyzed. Unit <combo3> generated.
+
+Analyzing Entity <clk_div> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/clk_div.vhd" line 22: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <reset>
+Entity <clk_div> analyzed. Unit <clk_div> generated.
+
+Analyzing Entity <pwm> in library <work> (Architecture <behavioral>).
+Entity <pwm> analyzed. Unit <pwm> generated.
+
+Analyzing Entity <counter_8_bit> in library <work> (Architecture <behavioral>).
+Entity <counter_8_bit> analyzed. Unit <counter_8_bit> generated.
+
+Analyzing Entity <mode_generator> in library <work> (Architecture <behavioral>).
+Entity <mode_generator> analyzed. Unit <mode_generator> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <clk_div>.
+    Related source file is "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/clk_div.vhd".
+    Found 1-bit register for signal <clk_int>.
+    Found 8-bit up counter for signal <count_1>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <clk_div> synthesized.
+
+
+Synthesizing Unit <pwm>.
+    Related source file is "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/pwm.vhd".
+WARNING:Xst:653 - Signal <pulse_period100> is used but never assigned. This sourceless signal will be automatically connected to value 0010011100001111.
+WARNING:Xst:653 - Signal <pulse_period> is used but never assigned. This sourceless signal will be automatically connected to value 011111001111.
+    Found 1-bit register for signal <pwm_out>.
+    Found 1-bit register for signal <tick20>.
+    Found 1-bit register for signal <tick100>.
+    Found 12-bit up counter for signal <num_clks>.
+    Found 12-bit comparator greatequal for signal <num_clks$cmp_ge0000> created at line 74.
+    Found 16-bit up counter for signal <num_clks100>.
+    Found 16-bit comparator greatequal for signal <num_clks100$cmp_ge0000> created at line 81.
+    Found 12-bit comparator less for signal <pwm_out$cmp_lt0000> created at line 68.
+    Found 16-bit comparator greatequal for signal <tick100$cmp_ge0000> created at line 81.
+    Found 12-bit comparator greatequal for signal <tick20$cmp_ge0000> created at line 74.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   5 Comparator(s).
+Unit <pwm> synthesized.
+
+
+Synthesizing Unit <counter_8_bit>.
+    Related source file is "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/counter_8_bit.vhd".
+    Found 8-bit register for signal <count_temp>.
+    Found 8-bit adder for signal <count_temp$addsub0000> created at line 69.
+    Found 8-bit comparator greatequal for signal <count_temp$cmp_ge0000> created at line 66.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   1 Comparator(s).
+Unit <counter_8_bit> synthesized.
+
+
+Synthesizing Unit <mode_generator>.
+    Related source file is "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/mode_generator.vhd".
+    Found 8-bit register for signal <pan_load_v>.
+    Found 1-bit register for signal <pan_pause>.
+    Found 8-bit register for signal <tilt_load_v>.
+    Found 1-bit register for signal <tilt_pause>.
+    Found 1-bit register for signal <pan_load>.
+    Found 1-bit register for signal <tilt_load>.
+    Summary:
+	inferred   4 D-type flip-flop(s).
+Unit <mode_generator> synthesized.
+
+
+Synthesizing Unit <combo3>.
+    Related source file is "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.vhd".
+WARNING:Xst:646 - Signal <tick_20> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <tick2_20> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <pan_pwm_in> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <combo3> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 8-bit adder                                           : 2
+# Counters                                             : 5
+ 12-bit up counter                                     : 2
+ 16-bit up counter                                     : 2
+ 8-bit up counter                                      : 1
+# Registers                                            : 15
+ 1-bit register                                        : 11
+ 8-bit register                                        : 4
+# Comparators                                          : 12
+ 12-bit comparator greatequal                          : 4
+ 12-bit comparator less                                : 2
+ 16-bit comparator greatequal                          : 4
+ 8-bit comparator greatequal                           : 2
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1290 - Hierarchical block <pan_count> is unconnected in block <combo3>.
+   It will be removed from the design.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 8-bit adder                                           : 2
+# Counters                                             : 5
+ 12-bit up counter                                     : 2
+ 16-bit up counter                                     : 2
+ 8-bit up counter                                      : 1
+# Registers                                            : 43
+ Flip-Flops                                            : 43
+# Comparators                                          : 12
+ 12-bit comparator greatequal                          : 4
+ 12-bit comparator less                                : 2
+ 16-bit comparator greatequal                          : 4
+ 8-bit comparator greatequal                           : 2
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <1> in Unit <LPM_DFF_16> is equivalent to the following FF/Latch, which will be removed : <7> 
+INFO:Xst:2261 - The FF/Latch <2> in Unit <LPM_DFF_16> is equivalent to the following FF/Latch, which will be removed : <4> 
+INFO:Xst:2261 - The FF/Latch <3> in Unit <LPM_DFF_16> is equivalent to the following FF/Latch, which will be removed : <5> 
+INFO:Xst:2261 - The FF/Latch <0> in Unit <LPM_DFF_16> is equivalent to the following FF/Latch, which will be removed : <6> 
+INFO:Xst:2261 - The FF/Latch <1> in Unit <LPM_DFF_15> is equivalent to the following FF/Latch, which will be removed : <7> 
+INFO:Xst:2261 - The FF/Latch <2> in Unit <LPM_DFF_15> is equivalent to the following FF/Latch, which will be removed : <4> 
+INFO:Xst:2261 - The FF/Latch <3> in Unit <LPM_DFF_15> is equivalent to the following FF/Latch, which will be removed : <5> 
+INFO:Xst:2261 - The FF/Latch <0> in Unit <LPM_DFF_15> is equivalent to the following FF/Latch, which will be removed : <6> 
+
+Optimizing unit <combo3> ...
+
+Optimizing unit <pwm> ...
+
+Optimizing unit <counter_8_bit> ...
+
+Optimizing unit <mode_generator> ...
+WARNING:Xst:2677 - Node <tilt_pwm/tick20> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_15> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_14> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_13> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_12> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_11> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_10> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_9> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_8> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_7> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_6> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_5> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_4> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_3> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_2> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_1> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/num_clks100_0> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/tick20> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_pwm/tick100> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_count/count_temp_0> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_count/count_temp_1> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_count/count_temp_2> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_count/count_temp_3> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_count/count_temp_4> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_count/count_temp_5> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_count/count_temp_6> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <pan_count/count_temp_7> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <mode_gen/pan_load_v_0> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <mode_gen/pan_load_v_1> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <mode_gen/pan_load_v_2> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <mode_gen/pan_load_v_3> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <mode_gen/pan_load> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <mode_gen/pan_pause> of sequential type is unconnected in block <combo3>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block combo3, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 66
+ Flip-Flops                                            : 66
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : combo3.ngr
+Top Level Output File Name         : combo3
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : NO
+
+Design Statistics
+# IOs                              : 8
+
+Cell Usage :
+# BELS                             : 246
+#      GND                         : 1
+#      INV                         : 13
+#      LUT1                        : 14
+#      LUT2                        : 16
+#      LUT3                        : 43
+#      LUT3_L                      : 1
+#      LUT4                        : 27
+#      LUT4_D                      : 1
+#      LUT4_L                      : 2
+#      MUXCY                       : 78
+#      MUXF5                       : 1
+#      VCC                         : 1
+#      XORCY                       : 48
+# FlipFlops/Latches                : 66
+#      FDC                         : 27
+#      FDCE                        : 4
+#      FDE                         : 18
+#      FDP                         : 5
+#      FDPE                        : 4
+#      FDR                         : 8
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 7
+#      IBUF                        : 5
+#      OBUF                        : 2
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                       61  out of   4656     1%  
+ Number of Slice Flip Flops:             66  out of   9312     0%  
+ Number of 4 input LUTs:                117  out of   9312     1%  
+ Number of IOs:                           8
+ Number of bonded IOBs:                   8  out of    232     3%  
+ Number of GCLKs:                         2  out of     24     8%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk_in                             | BUFGP                  | 9     |
+u1/clk_int1                        | BUFG                   | 57    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+-------------------------+-------+
+Control Signal                     | Buffer(FF name)         | Load  |
+-----------------------------------+-------------------------+-------+
+N0(XST_GND:G)                      | NONE(pan_pwm/num_clks_0)| 26    |
+reset                              | IBUF                    | 14    |
+-----------------------------------+-------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 7.157ns (Maximum Frequency: 139.723MHz)
+   Minimum input arrival time before clock: 3.074ns
+   Maximum output required time after clock: 4.283ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk_in'
+  Clock period: 4.851ns (frequency: 206.143MHz)
+  Total number of paths / destination ports: 109 / 18
+-------------------------------------------------------------------------
+Delay:               4.851ns (Levels of Logic = 2)
+  Source:            u1/count_1_0 (FF)
+  Destination:       u1/count_1_0 (FF)
+  Source Clock:      clk_in rising
+  Destination Clock: clk_in rising
+
+  Data Path: u1/count_1_0 to u1/count_1_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.591   0.622  u1/count_1_0 (u1/count_1_0)
+     LUT4:I0->O            1   0.704   0.499  u1/count_1_cmp_eq000015 (u1/count_1_cmp_eq000015)
+     LUT2:I1->O            9   0.704   0.820  u1/count_1_cmp_eq000016 (u1/count_1_cmp_eq0000)
+     FDR:R                     0.911          u1/count_1_0
+    ----------------------------------------
+    Total                      4.851ns (2.910ns logic, 1.941ns route)
+                                       (60.0% logic, 40.0% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'u1/clk_int1'
+  Clock period: 7.157ns (frequency: 139.723MHz)
+  Total number of paths / destination ports: 5085 / 59
+-------------------------------------------------------------------------
+Delay:               7.157ns (Levels of Logic = 24)
+  Source:            tilt_pwm/num_clks100_0 (FF)
+  Destination:       tilt_pwm/num_clks100_15 (FF)
+  Source Clock:      u1/clk_int1 rising
+  Destination Clock: u1/clk_int1 rising
+
+  Data Path: tilt_pwm/num_clks100_0 to tilt_pwm/num_clks100_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              2   0.591   0.622  tilt_pwm/num_clks100_0 (tilt_pwm/num_clks100_0)
+     LUT4:I0->O            1   0.704   0.000  tilt_pwm/Mcompar_num_clks100_cmp_ge0000_lut<0> (tilt_pwm/Mcompar_num_clks100_cmp_ge0000_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  tilt_pwm/Mcompar_num_clks100_cmp_ge0000_cy<0> (tilt_pwm/Mcompar_num_clks100_cmp_ge0000_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcompar_num_clks100_cmp_ge0000_cy<1> (tilt_pwm/Mcompar_num_clks100_cmp_ge0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcompar_num_clks100_cmp_ge0000_cy<2> (tilt_pwm/Mcompar_num_clks100_cmp_ge0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcompar_num_clks100_cmp_ge0000_cy<3> (tilt_pwm/Mcompar_num_clks100_cmp_ge0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcompar_num_clks100_cmp_ge0000_cy<4> (tilt_pwm/Mcompar_num_clks100_cmp_ge0000_cy<4>)
+     MUXCY:CI->O          18   0.331   1.103  tilt_pwm/Mcompar_num_clks100_cmp_ge0000_cy<5> (tilt_pwm/num_clks100_cmp_ge0000)
+     LUT3:I2->O            1   0.704   0.000  tilt_pwm/Mcount_num_clks100_lut<0> (tilt_pwm/Mcount_num_clks100_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  tilt_pwm/Mcount_num_clks100_cy<0> (tilt_pwm/Mcount_num_clks100_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<1> (tilt_pwm/Mcount_num_clks100_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<2> (tilt_pwm/Mcount_num_clks100_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<3> (tilt_pwm/Mcount_num_clks100_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<4> (tilt_pwm/Mcount_num_clks100_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<5> (tilt_pwm/Mcount_num_clks100_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<6> (tilt_pwm/Mcount_num_clks100_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<7> (tilt_pwm/Mcount_num_clks100_cy<7>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<8> (tilt_pwm/Mcount_num_clks100_cy<8>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<9> (tilt_pwm/Mcount_num_clks100_cy<9>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<10> (tilt_pwm/Mcount_num_clks100_cy<10>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<11> (tilt_pwm/Mcount_num_clks100_cy<11>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<12> (tilt_pwm/Mcount_num_clks100_cy<12>)
+     MUXCY:CI->O           1   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<13> (tilt_pwm/Mcount_num_clks100_cy<13>)
+     MUXCY:CI->O           0   0.059   0.000  tilt_pwm/Mcount_num_clks100_cy<14> (tilt_pwm/Mcount_num_clks100_cy<14>)
+     XORCY:CI->O           1   0.804   0.000  tilt_pwm/Mcount_num_clks100_xor<15> (tilt_pwm/Mcount_num_clks10015)
+     FDE:D                     0.308          tilt_pwm/num_clks100_15
+    ----------------------------------------
+    Total                      7.157ns (5.432ns logic, 1.725ns route)
+                                       (75.9% logic, 24.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'u1/clk_int1'
+  Total number of paths / destination ports: 24 / 6
+-------------------------------------------------------------------------
+Offset:              3.074ns (Levels of Logic = 2)
+  Source:            switch<1> (PAD)
+  Destination:       mode_gen/tilt_load_v_0 (FF)
+  Destination Clock: u1/clk_int1 rising
+
+  Data Path: switch<1> to mode_gen/tilt_load_v_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             6   1.218   0.844  switch_1_IBUF (switch_1_IBUF)
+     LUT4:I0->O            1   0.704   0.000  mode_gen/tilt_pause_or00001 (mode_gen/tilt_pause_or0000)
+     FDC:D                     0.308          mode_gen/tilt_pause
+    ----------------------------------------
+    Total                      3.074ns (2.230ns logic, 0.844ns route)
+                                       (72.5% logic, 27.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'u1/clk_int1'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              4.283ns (Levels of Logic = 1)
+  Source:            tilt_pwm/pwm_out (FF)
+  Destination:       tilt_pwm_out (PAD)
+  Source Clock:      u1/clk_int1 rising
+
+  Data Path: tilt_pwm/pwm_out to tilt_pwm_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDP:C->Q              1   0.591   0.420  tilt_pwm/pwm_out (tilt_pwm/pwm_out)
+     OBUF:I->O                 3.272          tilt_pwm_out_OBUF (tilt_pwm_out)
+    ----------------------------------------
+    Total                      4.283ns (3.863ns logic, 0.420ns route)
+                                       (90.2% logic, 9.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 3.12 secs
+ 
+--> 
+
+Total memory usage is 247060 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   40 (   0 filtered)
+Number of infos    :    8 (   0 filtered)
+

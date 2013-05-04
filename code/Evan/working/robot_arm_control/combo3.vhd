@@ -33,8 +33,8 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity combo3 is
 port(	clk_in		: in std_logic;
 		reset		: in std_logic;
-		switch : in std_logic_vector(3 downto 0);
-		pan_pwm_out : out std_logic ;
+		SW : in std_logic_vector(3 downto 0);
+		pan_pwm_out : out std_logic;
 		tilt_pwm_out : out std_logic 
 		);
 
@@ -56,8 +56,8 @@ COMPONENT pwm
          reset : IN  std_logic;
 			pwm_on_in : in std_logic_vector(7 downto 0);
          pwm_out : OUT  std_logic;
-			tick20    : out std_logic :='0'; --falling edge is 20 ms tick
-			tick100   : out std_logic :='0'  --Not sure if it works!
+			tick20    : out std_logic; --falling edge is 20 ms tick
+			tick100   : out std_logic  --falling edge is 100 ms tick
         );
 END COMPONENT;
 	 
@@ -73,7 +73,7 @@ COMPONENT counter_8_bit
 			 );
 END COMPONENT;
 
-COMPONENT mode_generator2
+COMPONENT mode_generator
 	PORT (
 			clk_in:in STD_LOGIC;
 			  reset: in std_logic;
@@ -90,9 +90,9 @@ END COMPONENT;
 signal clk_temp  : std_logic := '0';
 signal pan_tick_100,tilt_tick_100 : std_logic := '0';
 signal pan_pwm_in, tilt_pwm_in : std_logic_vector(7 downto 0) := x"96";
-signal pan_p, tilt_p, pan_l, tilt_l : std_logic;
+signal pan_p, tilt_p, pan_l, tilt_l : std_logic := '0';
 signal pan_load_vec, tilt_load_vec : std_logic_vector(7 downto 0);
-signal tick_20, tick2_20 : std_logic;
+signal tick_20, tick2_20 : std_logic := '0';
 
 begin
 
@@ -102,16 +102,16 @@ u1: clk_div port map(
 	clk_100khz => clk_temp
 	);
 	
-pan_pwm :PWM port map(
+pan_pwm : pwm port map(
 			clk => clk_temp,
-			pwm_on_in => x"C3",
+			pwm_on_in => pan_pwm_in,
 			pwm_out => pan_pwm_out,
 			reset => '0',--test
 			tick100 => pan_tick_100,
 			tick20 => tick2_20
 			);
 
-tilt_pwm :PWM port map(
+tilt_pwm : pwm port map(
 			clk => clk_temp,
 			pwm_on_in => tilt_pwm_in,
 			pwm_out => tilt_pwm_out,
@@ -140,10 +140,10 @@ tilt_count: counter_8_bit port map(
 			load_vec => tilt_load_vec
 );
 
-mode_gen : mode_generator2 port map(
+mode_gen : mode_generator port map(
 					clk_in => clk_temp,
 					reset => reset,
-					sw => switch,
+					sw => SW,
 					pan_pause => pan_p,
 					pan_load => pan_l,
 					pan_load_v => pan_load_vec,

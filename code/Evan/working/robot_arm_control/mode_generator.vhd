@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    22:11:59 04/29/2013 
+-- Create Date:    14:27:17 04/23/2013 
 -- Design Name: 
--- Module Name:    mode_generator - Behavioral 
+-- Module Name:    lab8w2_3 - Behavioral 
 -- Project Name: 
 -- Target Devices: 
 -- Tool versions: 
@@ -30,466 +30,125 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity mode_generator is
-    Port ( clk_in : in  STD_LOGIC;
-           reset : in  STD_LOGIC;
-           mode_sel : in  STD_LOGIC_VECTOR (3 downto 0);
-           pan_pause : out  STD_LOGIC;
-           tilt_pause : out  STD_LOGIC;
-           pan_load : out  STD_LOGIC;
-           tilt_load : out  STD_LOGIC;
-           pan_load_vec : out  STD_LOGIC_VECTOR (7 downto 0) := x"96";
-           tilt_load_vec : out  STD_LOGIC_VECTOR (7 downto 0) := x"96";
-			  state_out : out STD_LOGIC_VECTOR (3 downto 0)
-			  );
+    Port ( clk_in:in STD_LOGIC;
+			  reset: in std_logic;
+			  sw : in  STD_LOGIC_vector(3 downto 0);
+			  pan_pause :out std_logic;
+			  pan_load : out std_logic;
+			  pan_load_v: out std_logic_vector(7 downto 0);
+			  tilt_pause : out std_logic;
+			  tilt_load: out std_logic;
+			  tilt_load_v: out std_logic_vector(7 downto 0));
+			 
 end mode_generator;
 
 architecture Behavioral of mode_generator is
 
-TYPE state_type is (S0,S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,S11);
-signal present_state: state_type := S0;
-signal next_state: state_type := S0;
-
 begin
-
-	process(clk_in)
-	begin
-		if(reset = '1') then
-			present_state <= present_state;
-		elsif(rising_Edge(clk_in)) then
-			present_state <= next_state;
-		end if;
-	end process;
-	
-	process(present_state,clk_in,mode_sel,reset)
-	begin
-	
-		case(present_state) is
-			when S0 => -- pan: NC  tilt: NC
-				state_out <= "0000";
-				
-				pan_pause <= '1';
-				tilt_pause <= '1';
-				pan_load <= '0';
-				tilt_load <= '0';
-				--pan_load_vec <= x"96";
-				--tilt_load_vec <= x"96";
-				
-				if(mode_sel = "0000") then
-					next_state <= S0;
-				elsif(mode_sel = "0001") then
-					next_state <= S1;
-				elsif(mode_sel = "0010") then
-					next_state <= S2;
-				elsif(mode_sel = "0011") then
-					next_state <= S3;
-				elsif(mode_sel = "0100") then
-					next_state <= S4;
-				elsif(mode_sel = "0101") then
-					next_state <= S5;
-				elsif(mode_sel = "0110") then
-					next_state <= S6;
-				elsif(mode_sel = "0111") then
-					next_state <= S7;
-				elsif(mode_sel = "1000") then
-					next_state <= S8;
-				elsif(mode_sel = "1001") then
-					next_state <= S9;
-				elsif(mode_sel = "1010") then
-					next_state <= S10;
-				elsif(mode_sel = "1011") then
-					next_state <= S11;
-				end if;
-			when S1 => -- pan: 90  tilt: 90
-				state_out <= "0001";
-				
-				pan_pause <= '0';
+	process(reset,clk_in, sw)--clk_process_change_state
+		begin
+			if (reset = '1') then
+			 pan_pause <= '0';
+				pan_load <='1';
+				pan_load_v <=x"96";--others set to 90 degreesy
 				tilt_pause <= '0';
-				pan_load <= '1';
-				tilt_load <= '1';
-				pan_load_vec <= x"96";
-				tilt_load_vec <= x"96";
-				
-				if(mode_sel = "0000") then
-					next_state <= S0;
-				elsif(mode_sel = "0001") then
-					next_state <= S1;
-				elsif(mode_sel = "0010") then
-					next_state <= S2;
-				elsif(mode_sel = "0011") then
-					next_state <= S3;
-				elsif(mode_sel = "0100") then
-					next_state <= S4;
-				elsif(mode_sel = "0101") then
-					next_state <= S5;
-				elsif(mode_sel = "0110") then
-					next_state <= S6;
-				elsif(mode_sel = "0111") then
-					next_state <= S7;
-				elsif(mode_sel = "1000") then
-					next_state <= S8;
-				elsif(mode_sel = "1001") then
-					next_state <= S9;
-				elsif(mode_sel = "1010") then
-					next_state <= S10;
-				elsif(mode_sel = "1011") then
-					next_state <= S11;
+				tilt_load <='1';
+				tilt_load_v <=x"96";
+			
+				elsif(rising_edge(clk_in))then
+					case (sw) is 
+						when "0000" =>
+							pan_pause <= '1';--NC
+							pan_load <='0';
+							pan_load_v <=x"96";
+							tilt_pause <= '1';--NC
+							tilt_load <='0';
+							tilt_load_v <=x"96";			
+						when "0001" =>
+							pan_pause <= '0';
+							pan_load <='1';
+							pan_load_v <=x"96";--90 degrees
+							tilt_pause <= '0';
+							tilt_load <='1';
+							tilt_load_v <=x"96";--90 degrees
+						when "0010" =>
+							pan_pause <= '1';--NC
+							pan_load <='0';
+							pan_load_v <=x"96";
+							tilt_pause <= '0';
+							tilt_load <='1';
+							--tilt_load_v <=x"80";--control=68 degrees  (bad value)
+							tilt_load_v <=x"96";--control=68 degrees  (bad value)
+							
+						when "0011" =>
+							pan_pause <= '0';
+							pan_load <='1';
+							--pan_load_v <=x"80";--control=68 degrees
+							pan_load_v <=x"96";--control=68 degrees
+							
+							tilt_pause <= '1';--NC
+							tilt_load <='0';
+							tilt_load_v <=x"96";
+						when "0100" =>
+							pan_pause <= '0';
+							pan_load <='1';
+							pan_load_v <=x"C3";--max=135 degrees
+							tilt_pause <= '1';--NC
+							tilt_load <='0';
+							tilt_load_v <=x"96";
+						when "0101" =>
+							pan_pause <= '0';
+							pan_load <='1';
+							pan_load_v <=x"69";--min=45 degrees
+							tilt_load <='0';
+							tilt_load_v <=x"96";
+							tilt_pause <= '1';--NC
+						when "0110" =>
+							pan_pause <= '1';--NC
+							--pan_pause <= '0'; ---overwritten (changed)
+							pan_load <='0';
+							pan_load_v <=x"96";
+							
+							tilt_pause <= '0';
+							tilt_load <='1';
+							tilt_load_v <=x"C3";--max=135 degrees
+						when "0111" =>
+							pan_pause <= '1';--NC
+							pan_load <='0';
+							pan_load_v <=x"96";
+							tilt_pause <= '0';
+							tilt_load <='1';
+							tilt_load_v <=x"69";--max=45 degrees
+						when "1000" =>
+							pan_pause <= '0';
+							pan_load <='0';--sweep to max(135)
+							pan_load_v <=x"C3";
+							tilt_pause <= '1';
+							tilt_load <='0';--NC
+							tilt_load_v <=x"C3";
+						when "1001" =>
+							pan_pause <= '1';
+							pan_load <='0';--NC
+							pan_load_v <=x"96";
+							tilt_pause <= '0';
+							tilt_load <='0';--sweep to max
+							tilt_load_v <=x"C3";
+						when "1011" =>
+							pan_pause <= '0';
+							pan_load <='0';--sweep to  max
+							pan_load_v <=x"C3";
+							tilt_pause <= '0';
+							tilt_load <='0';--sweep to max
+							tilt_load_v <=x"C3";
+						when others => --reset to 90 degrees
+							pan_pause <= '0';
+							pan_load <='1';
+							pan_load_v <=x"96";--others set to 90 degreesy
+							tilt_pause <= '0';
+							tilt_load <='1';
+							tilt_load_v <=x"96";
+					end case;
 				end if;
-			when S2 => -- pan: NC  tilt: ec
-				state_out <= "0001";
-				
-				pan_pause <= '1';
-				tilt_pause <= '0';
-				pan_load <= '0';
-				tilt_load <= '1';
-				--pan_load_vec <= x"96";
-				tilt_load_vec <= x"79"; --121
-				
-				if(mode_sel = "0000") then
-					next_state <= S0;
-				elsif(mode_sel = "0001") then
-					next_state <= S1;
-				elsif(mode_sel = "0010") then
-					next_state <= S2;
-				elsif(mode_sel = "0011") then
-					next_state <= S3;
-				elsif(mode_sel = "0100") then
-					next_state <= S4;
-				elsif(mode_sel = "0101") then
-					next_state <= S5;
-				elsif(mode_sel = "0110") then
-					next_state <= S6;
-				elsif(mode_sel = "0111") then
-					next_state <= S7;
-				elsif(mode_sel = "1000") then
-					next_state <= S8;
-				elsif(mode_sel = "1001") then
-					next_state <= S9;
-				elsif(mode_sel = "1010") then
-					next_state <= S10;
-				elsif(mode_sel = "1011") then
-					next_state <= S11;
-				end if;
-			when S3 => -- pan: ec  tilt: NC
-				state_out <= "0011";
-				
-				pan_pause <= '0';
-				tilt_pause <= '1';
-				pan_load <= '1';
-				tilt_load <= '0';
-				pan_load_vec <= x"79"; --121
-				--tilt_load_vec <= x"96";
-				
-				if(mode_sel = "0000") then
-					next_state <= S0;
-				elsif(mode_sel = "0001") then
-					next_state <= S1;
-				elsif(mode_sel = "0010") then
-					next_state <= S2;
-				elsif(mode_sel = "0011") then
-					next_state <= S3;
-				elsif(mode_sel = "0100") then
-					next_state <= S4;
-				elsif(mode_sel = "0101") then
-					next_state <= S5;
-				elsif(mode_sel = "0110") then
-					next_state <= S6;
-				elsif(mode_sel = "0111") then
-					next_state <= S7;
-				elsif(mode_sel = "1000") then
-					next_state <= S8;
-				elsif(mode_sel = "1001") then
-					next_state <= S9;
-				elsif(mode_sel = "1010") then
-					next_state <= S10;
-				elsif(mode_sel = "1011") then
-					next_state <= S11;
-				end if;
-			when S4 =>
-				 -- pan: max  tilt: NC
-				state_out <= "0100";
-				
-				pan_pause <= '0';
-				tilt_pause <= '1';
-				pan_load <= '1';
-				tilt_load <= '0';
-				pan_load_vec <= x"C3";
-				--tilt_load_vec <= x"96";
-				
-				if(mode_sel = "0000") then
-					next_state <= S0;
-				elsif(mode_sel = "0001") then
-					next_state <= S1;
-				elsif(mode_sel = "0010") then
-					next_state <= S2;
-				elsif(mode_sel = "0011") then
-					next_state <= S3;
-				elsif(mode_sel = "0100") then
-					next_state <= S4;
-				elsif(mode_sel = "0101") then
-					next_state <= S5;
-				elsif(mode_sel = "0110") then
-					next_state <= S6;
-				elsif(mode_sel = "0111") then
-					next_state <= S7;
-				elsif(mode_sel = "1000") then
-					next_state <= S8;
-				elsif(mode_sel = "1001") then
-					next_state <= S9;
-				elsif(mode_sel = "1010") then
-					next_state <= S10;
-				elsif(mode_sel = "1011") then
-					next_state <= S11;
-				end if;
-			when S5 => -- pan: min  tilt: NC
-				state_out <= "0101";
-				
-				pan_pause <= '0';
-				tilt_pause <= '1';
-				pan_load <= '1';
-				tilt_load <= '0';
-				pan_load_vec <= x"69";
-				--tilt_load_vec <= x"96";
-				
-				if(mode_sel = "0000") then
-					next_state <= S0;
-				elsif(mode_sel = "0001") then
-					next_state <= S1;
-				elsif(mode_sel = "0010") then
-					next_state <= S2;
-				elsif(mode_sel = "0011") then
-					next_state <= S3;
-				elsif(mode_sel = "0100") then
-					next_state <= S4;
-				elsif(mode_sel = "0101") then
-					next_state <= S5;
-				elsif(mode_sel = "0110") then
-					next_state <= S6;
-				elsif(mode_sel = "0111") then
-					next_state <= S7;
-				elsif(mode_sel = "1000") then
-					next_state <= S8;
-				elsif(mode_sel = "1001") then
-					next_state <= S9;
-				elsif(mode_sel = "1010") then
-					next_state <= S10;
-				elsif(mode_sel = "1011") then
-					next_state <= S11;
-				end if;
-			when S6 => -- pan: NC  tilt: max
-				state_out <= "0110";
-				
-				pan_pause <= '1';
-				tilt_pause <= '0';
-				pan_load <= '0';
-				tilt_load <= '1';
-				--pan_load_vec <= x"96";
-				tilt_load_vec <= x"C3";
-				
-				if(mode_sel = "0000") then
-					next_state <= S0;
-				elsif(mode_sel = "0001") then
-					next_state <= S1;
-				elsif(mode_sel = "0010") then
-					next_state <= S2;
-				elsif(mode_sel = "0011") then
-					next_state <= S3;
-				elsif(mode_sel = "0100") then
-					next_state <= S4;
-				elsif(mode_sel = "0101") then
-					next_state <= S5;
-				elsif(mode_sel = "0110") then
-					next_state <= S6;
-				elsif(mode_sel = "0111") then
-					next_state <= S7;
-				elsif(mode_sel = "1000") then
-					next_state <= S8;
-				elsif(mode_sel = "1001") then
-					next_state <= S9;
-				elsif(mode_sel = "1010") then
-					next_state <= S10;
-				elsif(mode_sel = "1011") then
-					next_state <= S11;
-				end if;
-			when S7 => -- pan: NC  tilt: min
-				state_out <= "0111";
-				
-				pan_pause <= '1';
-				tilt_pause <= '0';
-				pan_load <= '0';
-				tilt_load <= '1';
-				--pan_load_vec <= x"96";
-				tilt_load_vec <= x"96";
-				
-				if(mode_sel = "0000") then
-					next_state <= S0;
-				elsif(mode_sel = "0001") then
-					next_state <= S1;
-				elsif(mode_sel = "0010") then
-					next_state <= S2;
-				elsif(mode_sel = "0011") then
-					next_state <= S3;
-				elsif(mode_sel = "0100") then
-					next_state <= S4;
-				elsif(mode_sel = "0101") then
-					next_state <= S5;
-				elsif(mode_sel = "0110") then
-					next_state <= S6;
-				elsif(mode_sel = "0111") then
-					next_state <= S7;
-				elsif(mode_sel = "1000") then
-					next_state <= S8;
-				elsif(mode_sel = "1001") then
-					next_state <= S9;
-				elsif(mode_sel = "1010") then
-					next_state <= S10;
-				elsif(mode_sel = "1011") then
-					next_state <= S11;
-				end if;
-			when S8 => -- pan: sweep  tilt: NC
-				state_out <= "1000";
-				
-				pan_pause <= '0';
-				tilt_pause <= '1';
-				pan_load <= '1';
-				tilt_load <= '0';
-				pan_load_vec <= x"AB"; --171
-				--tilt_load_vec <= x"96";
-				
-				if(mode_sel = "0000") then
-					next_state <= S0;
-				elsif(mode_sel = "0001") then
-					next_state <= S1;
-				elsif(mode_sel = "0010") then
-					next_state <= S2;
-				elsif(mode_sel = "0011") then
-					next_state <= S3;
-				elsif(mode_sel = "0100") then
-					next_state <= S4;
-				elsif(mode_sel = "0101") then
-					next_state <= S5;
-				elsif(mode_sel = "0110") then
-					next_state <= S6;
-				elsif(mode_sel = "0111") then
-					next_state <= S7;
-				elsif(mode_sel = "1000") then
-					next_state <= S8;
-				elsif(mode_sel = "1001") then
-					next_state <= S9;
-				elsif(mode_sel = "1010") then
-					next_state <= S10;
-				elsif(mode_sel = "1011") then
-					next_state <= S11;
-				end if;
-			when S9 => -- pan: NC  tilt: sweep
-				state_out <= "1001";
-				
-				pan_pause <= '1';
-				tilt_pause <= '0';
-				pan_load <= '0';
-				tilt_load <= '1';
-				--pan_load_vec <= x"96";
-				tilt_load_vec <= x"AB"; --171
-				
-				if(mode_sel = "0000") then
-					next_state <= S0;
-				elsif(mode_sel = "0001") then
-					next_state <= S1;
-				elsif(mode_sel = "0010") then
-					next_state <= S2;
-				elsif(mode_sel = "0011") then
-					next_state <= S3;
-				elsif(mode_sel = "0100") then
-					next_state <= S4;
-				elsif(mode_sel = "0101") then
-					next_state <= S5;
-				elsif(mode_sel = "0110") then
-					next_state <= S6;
-				elsif(mode_sel = "0111") then
-					next_state <= S7;
-				elsif(mode_sel = "1000") then
-					next_state <= S8;
-				elsif(mode_sel = "1001") then
-					next_state <= S9;
-				elsif(mode_sel = "1010") then
-					next_state <= S10;
-				elsif(mode_sel = "1011") then
-					next_state <= S11;
-				end if;
-			when S10 => -- pan: sweep  tilt: sweep
-				state_out <= "1010";
-				
-				pan_pause <= '0';
-				tilt_pause <= '0';
-				pan_load <= '1';
-				tilt_load <= '1';
-				pan_load_vec <= x"AB";
-				tilt_load_vec <= x"AB";
-				
-				if(mode_sel = "0000") then
-					next_state <= S0;
-				elsif(mode_sel = "0001") then
-					next_state <= S1;
-				elsif(mode_sel = "0010") then
-					next_state <= S2;
-				elsif(mode_sel = "0011") then
-					next_state <= S3;
-				elsif(mode_sel = "0100") then
-					next_state <= S4;
-				elsif(mode_sel = "0101") then
-					next_state <= S5;
-				elsif(mode_sel = "0110") then
-					next_state <= S6;
-				elsif(mode_sel = "0111") then
-					next_state <= S7;
-				elsif(mode_sel = "1000") then
-					next_state <= S8;
-				elsif(mode_sel = "1001") then
-					next_state <= S9;
-				elsif(mode_sel = "1010") then
-					next_state <= S10;
-				elsif(mode_sel = "1011") then
-					next_state <= S11;
-				end if;
-			when S11 => -- pan: ec  tilt: ec
-				state_out <= "1011";
-				
-				pan_pause <= '0';
-				tilt_pause <= '0';
-				pan_load <= '1';
-				tilt_load <= '1';
-				pan_load_vec <= x"6F"; --111
-				tilt_load_vec <= x"B7";  --183
-				
-				if(mode_sel = "0000") then
-					next_state <= S0;
-				elsif(mode_sel = "0001") then
-					next_state <= S1;
-				elsif(mode_sel = "0010") then
-					next_state <= S2;
-				elsif(mode_sel = "0011") then
-					next_state <= S3;
-				elsif(mode_sel = "0100") then
-					next_state <= S4;
-				elsif(mode_sel = "0101") then
-					next_state <= S5;
-				elsif(mode_sel = "0110") then
-					next_state <= S6;
-				elsif(mode_sel = "0111") then
-					next_state <= S7;
-				elsif(mode_sel = "1000") then
-					next_state <= S8;
-				elsif(mode_sel = "1001") then
-					next_state <= S9;
-				elsif(mode_sel = "1010") then
-					next_state <= S10;
-				elsif(mode_sel = "1011") then
-					next_state <= S11;
-				end if;
-			when others =>
-				state_out <= "1111";
-				next_state <= S0;
-		end case;
-	end process;
+end process;
 
 end Behavioral;
-

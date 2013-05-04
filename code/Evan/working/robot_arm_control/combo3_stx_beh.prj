@@ -1,0 +1,5 @@
+vhdl isim_temp "pwm.vhd"
+vhdl isim_temp "mode_generator.vhd"
+vhdl isim_temp "counter_8_bit.vhd"
+vhdl isim_temp "clk_div.vhd"
+vhdl isim_temp "combo3.vhd"

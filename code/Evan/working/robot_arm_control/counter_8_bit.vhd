@@ -19,8 +19,8 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_SIGNED.ALL;
---use IEEE.STD_LOGIC_UNSIGNED.ALL;
+--use IEEE.STD_LOGIC_SIGNED.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -61,18 +61,18 @@ process (clk_in,reset,pause,load,inc,count_temp)
 				count_temp <= count_temp;	
 			elsif(load = '1') then
 				count_temp <= load_int;
-			elsif(inc = '1') then
-					count_temp <= count_temp + 3;
+			else
+			   if(inc = '1') then
+					if(count_temp >= 195) then
+				         count_temp <= 105;
+			      else
+					     count_temp <= count_temp + 3;
+					end if;
+				end if;
 			end if;
 		
-			if(count_temp >= 195) then
-				count_temp <= 105;
-			end if;
-				
-		else
-			count_temp <= count_temp;
+
 		end if;
-		
 	end process;
 	
 count_out <= std_logic_vector(to_unsigned(count_temp,8));

@@ -38,7 +38,7 @@ port(
 	pwm_on_in : in std_logic_vector(7 downto 0);
 	pwm_out   : out std_logic;
 	tick20    : out std_logic :='0'; --falling edge is 20 ms tick
-	tick100   : out std_logic :='0'  --Not sure if it works!
+	tick100   : out std_logic :='0'  --falling edge is 100 ms tick
     );
 
 end pwm;
@@ -48,18 +48,15 @@ architecture Behavioral of pwm is
 -- Declare internal signals
 signal num_clks        : unsigned(11 downto 0) := x"000";
 signal num_clks100     : unsigned(15 downto 0) := x"0000";
-signal pwm_width       : unsigned(7 downto 0) := x"095";
+signal pwm_width       : unsigned(11 downto 0) := x"095";
 signal pulse_period    : unsigned(11 downto 0) := x"7CF";  --Wait > 20ms  1999
 signal pulse_period100 : unsigned(15 downto 0) := x"270F"; --Wait > 100ms 9999  270F
 
 begin
 --pulse_period <= x"7CF";        --20ms period
 --pulse_period100 <= x"270F";
-<<<<<<< HEAD
-pwm_width <= unsigned(pwm_on_in);
-=======
+
 pwm_width <= unsigned("0000"&pwm_on_in);
->>>>>>> Mode Generator and counter fixed
 
 	process(clk, reset)
 		begin

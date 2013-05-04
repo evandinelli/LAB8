@@ -1,0 +1,6 @@
+xst -intstyle ise -ifn "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.xst" -ofn "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.syr" 
+xst -intstyle ise -ifn "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.xst" -ofn "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc LAB8_spartan3E_UCF.ucf -p xc3s500e-fg320-4 "combo3.ngc" combo3.ngd  
+xst -intstyle ise -ifn "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.xst" -ofn "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.syr" 
+xst -intstyle ise -ifn "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.xst" -ofn "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc LAB8_spartan3E_UCF.ucf -p xc3s500e-fg320-4 "combo3.ngc" combo3.ngd  

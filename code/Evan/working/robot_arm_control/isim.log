@@ -1,5 +1,5 @@
 ISim log file
-Running: C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\mode_generator_tb_isim_beh.exe -gui -tclbatch isim.cmd -wdb C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/mode_generator_tb_isim_beh.wdb 
+Running: C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\final_tb_isim_beh.exe -gui -tclbatch isim.cmd -wdb C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/final_tb_isim_beh.wdb 
 ISim M.53d (signature 0x7dea747)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -10,6 +10,9 @@ Time resolution is 1 ps
 # wave add /
 # run 1000 ns
 Simulator is doing circuit initialization process.
+at 0 ps, Instance /final_tb/uut/pan_count/ : Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+at 0 ps, Instance /final_tb/uut/pan_count/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
+at 0 ps, Instance /final_tb/uut/tilt_count/ : Warning: CONV_INTEGER: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, and it has been converted to 0.
 Finished circuit initialization process.
 # run all
-Stopped at time : 61917010 us : File "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/mode_generator.vhd" Line 56
+Stopped at time : 370202250 ns : File "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/clk_div.vhd" Line 24
