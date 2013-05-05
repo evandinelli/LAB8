@@ -36,7 +36,7 @@ entity counter_8_bit is
 			clk_in : in STD_LOGIC;
           pause : in STD_LOGIC;
 			 inc   : in STD_LOGIC;
-			 inc_by : in STD_LOGIC_VECTOR(2 downto 0) := "011";
+			 inc_by : in STD_LOGIC_VECTOR(2 downto 0);
           reset : in STD_LOGIC;
 			 load  : in STD_LOGIC;
 			 load_vec  : in STD_LOGIC_VECTOR(7 downto 0);
@@ -49,7 +49,7 @@ architecture Behavioral of counter_8_bit is
 
 signal count_temp : integer range 105 to 195 := 150;
 signal load_int   : integer range 105 to 195 := 150;
-signal inc_val    : integer range 3 to 5     := 3;
+signal inc_val    : integer range 0 to 10     := 3;
 
 begin
 load_int <= CONV_INTEGER(load_vec);

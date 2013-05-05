@@ -24,21 +24,55 @@
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="Toplevel_guide.ncd" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="clk_div_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="combo3.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="combo3.bit" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="combo3.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="combo3.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="combo3.drc" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="combo3.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="combo3.ncd" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="combo3.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="combo3.ngd"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="combo3.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="combo3.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="combo3.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="combo3.pcf" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="combo3.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="combo3.ptwx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="combo3.stx"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="combo3.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="combo3.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="combo3.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="combo3.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="combo3.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="combo3.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="combo3.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="combo3_envsettings.html"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="combo3_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="combo3_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="combo3_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="combo3_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="combo3_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="combo3_map.xrpt"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="combo3_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="combo3_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="combo3_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="combo3_par.xrpt"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="combo3_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="combo3_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="combo3_summary.xml"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="combo3_tb_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="combo3_tb_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="combo3_tb_isim_beh.wdb"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="combo3_tb_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="combo3_usage.xml"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="combo3_vhdl.prj"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="combo3_xst.xrpt"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="counter_8_bit_stx_beh.prj"/>
@@ -51,6 +85,8 @@
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="mode_generator_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
@@ -62,22 +98,26 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1367698479" xil_pn:in_ck="-168415530110829685" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1367698479">
+    <transform xil_pn:end_ts="1367710993" xil_pn:in_ck="-553617903158819772" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1367710993">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="clk_div.vhd"/>
       <outfile xil_pn:name="combo3.vhd"/>
+      <outfile xil_pn:name="combo3_tb.vhd"/>
       <outfile xil_pn:name="counter_8_bit.vhd"/>
       <outfile xil_pn:name="dual_sweep.vhd"/>
-      <outfile xil_pn:name="final_tb.vhd"/>
       <outfile xil_pn:name="mode_generator.vhd"/>
       <outfile xil_pn:name="pwm.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1367698481" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="2168071449607464981" xil_pn:start_ts="1367698481">
+    <transform xil_pn:end_ts="1367710996" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="807247392633755246" xil_pn:start_ts="1367710996">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1367698481" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-7017941285178410665" xil_pn:start_ts="1367698481">
+    <transform xil_pn:end_ts="1367710996" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-4002857066516958224" xil_pn:start_ts="1367710996">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -85,35 +125,46 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1367698481" xil_pn:in_ck="-168415530110829685" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1367698481">
+    <transform xil_pn:end_ts="1367710996" xil_pn:in_ck="-553617903158819772" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1367710996">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="clk_div.vhd"/>
       <outfile xil_pn:name="combo3.vhd"/>
+      <outfile xil_pn:name="combo3_tb.vhd"/>
       <outfile xil_pn:name="counter_8_bit.vhd"/>
       <outfile xil_pn:name="dual_sweep.vhd"/>
-      <outfile xil_pn:name="final_tb.vhd"/>
       <outfile xil_pn:name="mode_generator.vhd"/>
       <outfile xil_pn:name="pwm.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1367698483" xil_pn:in_ck="-168415530110829685" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-6493516576328968244" xil_pn:start_ts="1367698481">
+    <transform xil_pn:end_ts="1367711002" xil_pn:in_ck="-553617903158819772" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-3533958101013561762" xil_pn:start_ts="1367710996">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="final_tb_beh.prj"/>
-      <outfile xil_pn:name="final_tb_isim_beh.exe"/>
+      <outfile xil_pn:name="combo3_tb_beh.prj"/>
+      <outfile xil_pn:name="combo3_tb_isim_beh.exe"/>
       <outfile xil_pn:name="fuse.log"/>
       <outfile xil_pn:name="isim"/>
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1367698483" xil_pn:in_ck="-5462377051713110610" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-280748978793711207" xil_pn:start_ts="1367698483">
+    <transform xil_pn:end_ts="1367711003" xil_pn:in_ck="4113550761865847431" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="4736522854668612971" xil_pn:start_ts="1367711002">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="final_tb_isim_beh.wdb"/>
+      <outfile xil_pn:name="combo3_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
       <outfile xil_pn:name="isim.log"/>
     </transform>
@@ -145,14 +196,11 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1367685261" xil_pn:in_ck="-998085393901330557" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="1109917917202270911" xil_pn:start_ts="1367685256">
+    <transform xil_pn:end_ts="1367712587" xil_pn:in_ck="-6883147754722180804" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="1109917917202270911" xil_pn:start_ts="1367712563">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="combo3.cmd_log"/>
@@ -163,32 +211,85 @@
       <outfile xil_pn:name="combo3.stx"/>
       <outfile xil_pn:name="combo3.syr"/>
       <outfile xil_pn:name="combo3.xst"/>
+      <outfile xil_pn:name="combo3_envsettings.html"/>
       <outfile xil_pn:name="combo3_stx_beh.prj"/>
       <outfile xil_pn:name="combo3_summary.html"/>
+      <outfile xil_pn:name="combo3_tb_beh.prj"/>
+      <outfile xil_pn:name="combo3_tb_stx_beh.prj"/>
       <outfile xil_pn:name="combo3_vhdl.prj"/>
       <outfile xil_pn:name="combo3_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1367684544" xil_pn:in_ck="5427678921064825600" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="1442148353764149083" xil_pn:start_ts="1367684544">
+    <transform xil_pn:end_ts="1367711569" xil_pn:in_ck="5427678921064825600" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="1442148353764149083" xil_pn:start_ts="1367711569">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputChanged"/>
     </transform>
-    <transform xil_pn:end_ts="1367685264" xil_pn:in_ck="7807888698044981865" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="4654917501230855387" xil_pn:start_ts="1367685261">
-      <status xil_pn:value="FailedRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
+    <transform xil_pn:end_ts="1367712599" xil_pn:in_ck="7807888698044981865" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="4654917501230855387" xil_pn:start_ts="1367712587">
+      <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
       <outfile xil_pn:name="combo3.bld"/>
       <outfile xil_pn:name="combo3.cmd_log"/>
+      <outfile xil_pn:name="combo3.ngd"/>
       <outfile xil_pn:name="combo3_ngdbuild.xrpt"/>
       <outfile xil_pn:name="xlnx_auto_0_xdb"/>
+    </transform>
+    <transform xil_pn:end_ts="1367712609" xil_pn:in_ck="7807888698044981866" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-5849673150125579957" xil_pn:start_ts="1367712599">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="combo3.pcf"/>
+      <outfile xil_pn:name="combo3_map.map"/>
+      <outfile xil_pn:name="combo3_map.mrp"/>
+      <outfile xil_pn:name="combo3_map.ncd"/>
+      <outfile xil_pn:name="combo3_map.ngm"/>
+      <outfile xil_pn:name="combo3_map.xrpt"/>
+      <outfile xil_pn:name="combo3_summary.xml"/>
+      <outfile xil_pn:name="combo3_usage.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1367712672" xil_pn:in_ck="-6929307030505777533" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="-5563652517805085498" xil_pn:start_ts="1367712609">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="combo3.ncd"/>
+      <outfile xil_pn:name="combo3.pad"/>
+      <outfile xil_pn:name="combo3.par"/>
+      <outfile xil_pn:name="combo3.ptwx"/>
+      <outfile xil_pn:name="combo3.unroutes"/>
+      <outfile xil_pn:name="combo3.xpi"/>
+      <outfile xil_pn:name="combo3_pad.csv"/>
+      <outfile xil_pn:name="combo3_pad.txt"/>
+      <outfile xil_pn:name="combo3_par.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1367712690" xil_pn:in_ck="4755624692850406" xil_pn:name="TRANEXT_bitFile_spartan3e" xil_pn:prop_ck="287829442711806529" xil_pn:start_ts="1367712672">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="combo3.bgn"/>
+      <outfile xil_pn:name="combo3.bit"/>
+      <outfile xil_pn:name="combo3.drc"/>
+      <outfile xil_pn:name="combo3.ut"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1367712704" xil_pn:in_ck="4755624692837552" xil_pn:name="TRAN_impactProgrammingTool" xil_pn:prop_ck="1890673188639090495" xil_pn:start_ts="1367712704">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1367712672" xil_pn:in_ck="7807888698044981734" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416186" xil_pn:start_ts="1367712666">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="combo3.twr"/>
+      <outfile xil_pn:name="combo3.twx"/>
     </transform>
   </transforms>
 

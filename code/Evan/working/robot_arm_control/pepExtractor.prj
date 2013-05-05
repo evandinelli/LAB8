@@ -1,5 +1,6 @@
 work	"clk_div.vhd"
 work	"combo3.vhd"
 work	"counter_8_bit.vhd"
+work	"dual_sweep.vhd"
 work	"mode_generator.vhd"
 work	"pwm.vhd"

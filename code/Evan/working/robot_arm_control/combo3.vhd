@@ -32,10 +32,15 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity combo3 is
 port(	clk_in		: in std_logic;
-		reset		: in std_logic;
+		reset	   	: in std_logic;
+		reset45     : in std_logic :='0';
 		SW : in std_logic_vector(3 downto 0);
+		SW_LED : out std_logic_vector(3 downto 0);
 		pan_pwm_out : out std_logic;
-		tilt_pwm_out : out std_logic 
+		tilt_pwm_out : out std_logic;
+		LED_20 : out std_logic;
+		LED_100 : out std_logic;
+		test : out std_logic
 		);
 
 end combo3;
@@ -78,6 +83,7 @@ COMPONENT mode_generator
 	PORT (
 			clk_in:in STD_LOGIC;
 			  reset: in std_logic;
+			  reset45 :in std_logic;
 			  sw : in  STD_LOGIC_vector(3 downto 0);
 			  pan_pause :out std_logic;
 			  pan_load : out std_logic;
@@ -91,20 +97,21 @@ END COMPONENT;
 COMPONENT dual_sweep
 	PORT (
 			clk_in : in  STD_LOGIC;
+			reset : in STD_LOGIC;
 			switch : in  STD_LOGIC_VECTOR (3 downto 0);
 			pan_count_in  : in  STD_LOGIC_VECTOR (7 downto 0);
 			tilt_100_temp : in STD_LOGIC;
 			tilt_inc : out STD_LOGIC;
-         inc_by   : out STD_LOGIC_VECTOR(2 downto 0) :="011"
+         inc_by   : out STD_LOGIC_VECTOR(2 downto 0)
 			);
 END COMPONENT;		  
 
-signal clk_temp  : std_logic := '0';
-signal pan_tick_100,tilt_tick_100 : std_logic := '0';
+signal clk_temp  : std_logic;
+signal pan_tick_100,tilt_tick_100 : std_logic;
 signal pan_pwm_in, tilt_pwm_in : std_logic_vector(7 downto 0) := x"96";
-signal pan_p, tilt_p, pan_l, tilt_l, tilt_inc_temp : std_logic := '0';
+signal pan_p, tilt_p, pan_l, tilt_l, tilt_inc_temp : std_logic;
 signal pan_load_vec, tilt_load_vec : std_logic_vector(7 downto 0);
-signal tick_20, tick2_20 : std_logic := '0';
+signal tick_20, tick2_20 : std_logic;
 signal inc_temp : std_logic_vector(2 downto 0);
 
 begin
@@ -158,6 +165,7 @@ tilt_count: counter_8_bit port map(
 mode_gen : mode_generator port map(
 					clk_in => clk_temp,
 					reset => reset,
+					reset45 => reset45,
 					sw => SW,
 					pan_pause => pan_p,
 					pan_load => pan_l,
@@ -170,11 +178,17 @@ mode_gen : mode_generator port map(
 
 dual : dual_sweep port map(
 					clk_in => clk_temp,
+					reset => reset,
 					switch => SW,
 					pan_count_in => pan_pwm_in,
 					tilt_inc => tilt_inc_temp,
 					inc_by => inc_temp,
 					tilt_100_temp => tilt_tick_100
 );
+
+LED_20 <= tick_20;
+LED_100 <= pan_tick_100;
+SW_LED <= SW;
+test <= tilt_inc_temp;
 
 end Behavioral;

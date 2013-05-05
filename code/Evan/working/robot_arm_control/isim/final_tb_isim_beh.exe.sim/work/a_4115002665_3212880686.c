@@ -60,7 +60,7 @@ LAB1:    return;
 LAB2:    xsi_set_current_line(51, ng0);
     t3 = (t0 + 1192U);
     t4 = *((char **)t3);
-    t3 = (t0 + 5737);
+    t3 = (t0 + 5734);
     t6 = 1;
     if (4U == 4U)
         goto LAB8;
@@ -71,7 +71,7 @@ LAB10:    if (t6 != 0)
         goto LAB5;
 
 LAB7:    xsi_set_current_line(59, ng0);
-    t1 = (t0 + 5752);
+    t1 = (t0 + 5749);
     t4 = (t0 + 3392);
     t5 = (t4 + 56U);
     t8 = *((char **)t5);
@@ -100,7 +100,7 @@ LAB24:
 LAB6:    goto LAB3;
 
 LAB5:    xsi_set_current_line(52, ng0);
-    t10 = (t0 + 5741);
+    t10 = (t0 + 5738);
     t12 = (t0 + 3392);
     t13 = (t12 + 56U);
     t14 = *((char **)t13);
@@ -111,7 +111,7 @@ LAB5:    xsi_set_current_line(52, ng0);
     xsi_set_current_line(53, ng0);
     t1 = (t0 + 1352U);
     t3 = *((char **)t1);
-    t1 = (t0 + 5744);
+    t1 = (t0 + 5741);
     t2 = 1;
     if (8U == 8U)
         goto LAB17;

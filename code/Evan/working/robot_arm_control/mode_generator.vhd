@@ -32,6 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity mode_generator is
     Port ( clk_in:in STD_LOGIC;
 			  reset: in std_logic;
+			  reset45 :in std_logic;
 			  sw : in  STD_LOGIC_vector(3 downto 0);
 			  pan_pause :out std_logic;
 			  pan_load : out std_logic;
@@ -50,10 +51,17 @@ begin
 			if (reset = '1') then
 			 pan_pause <= '0';
 				pan_load <='1';
-				pan_load_v <=x"96";--others set to 90 degreesy
+				pan_load_v <=x"96";--others set to 90 degrees
 				tilt_pause <= '0';
 				tilt_load <='1';
 				tilt_load_v <=x"96";
+			elsif (reset45 = '1') then
+				pan_pause <= '0';
+				pan_load <='1';
+				pan_load_v <=x"69";--others set to 45 degrees
+				tilt_pause <= '0';
+				tilt_load <='1';
+				tilt_load_v <=x"69";
 			
 				elsif(rising_edge(clk_in))then
 					case (sw) is 
@@ -133,7 +141,7 @@ begin
 							tilt_pause <= '0';
 							tilt_load <='0';--sweep to max
 							tilt_load_v <=x"C3";
-						when "1011" =>
+						when "1010" =>
 							pan_pause <= '0';
 							pan_load <='0';--sweep to  max
 							pan_load_v <=x"C3";

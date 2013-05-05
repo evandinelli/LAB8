@@ -1,0 +1,7 @@
+vhdl work "pwm.vhd"
+vhdl work "mode_generator.vhd"
+vhdl work "dual_sweep.vhd"
+vhdl work "counter_8_bit.vhd"
+vhdl work "clk_div.vhd"
+vhdl work "combo3.vhd"
+vhdl work "combo3_tb.vhd"

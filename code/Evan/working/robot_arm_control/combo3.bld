@@ -14,54 +14,6 @@ Done.
 Annotating constraints to design from ucf file "LAB8_spartan3E_UCF.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
-ERROR:ConstraintSystem:59 - Constraint <NET "pwm_out" LOC = "D7" |>
-   [LAB8_spartan3E_UCF.ucf(21)]: NET "pwm_out" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "pwm_out" LOC = "D7" |> [LAB8_spartan3E_UCF.ucf(21)]' could not be
-   found and so the Locate constraint will be removed.
-
-ERROR:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33 |>
-   [LAB8_spartan3E_UCF.ucf(21)]: NET "pwm_out" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-ERROR:ConstraintSystem:59 - Constraint <SLEW = FAST |>
-   [LAB8_spartan3E_UCF.ucf(21)]: NET "pwm_out" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-ERROR:ConstraintSystem:59 - Constraint <DRIVE = 8 ;>
-   [LAB8_spartan3E_UCF.ucf(21)]: NET "pwm_out" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-ERROR:ConstraintSystem:59 - Constraint <NET "pwm_out" LOC = "C7" |>
-   [LAB8_spartan3E_UCF.ucf(22)]: NET "pwm_out" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-WARNING:ConstraintSystem - A target design object for the Locate constraint
-   '<NET "pwm_out" LOC = "C7" |> [LAB8_spartan3E_UCF.ucf(22)]' could not be
-   found and so the Locate constraint will be removed.
-
-ERROR:ConstraintSystem:59 - Constraint <IOSTANDARD = LVCMOS33 |>
-   [LAB8_spartan3E_UCF.ucf(22)]: NET "pwm_out" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-ERROR:ConstraintSystem:59 - Constraint <SLEW = FAST |>
-   [LAB8_spartan3E_UCF.ucf(22)]: NET "pwm_out" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
-ERROR:ConstraintSystem:59 - Constraint <DRIVE = 8 ;>
-   [LAB8_spartan3E_UCF.ucf(22)]: NET "pwm_out" not found.  Please verify that:
-   1. The specified design element actually exists in the original design.
-   2. The specified object is spelled correctly in the constraint source file.
-
 Done...
 
 Checking expanded design ...
@@ -74,14 +26,13 @@ Partition Implementation Status
 -------------------------------
 
 NGDBUILD Design Results Summary:
-  Number of errors:     8
-  Number of warnings:   2
+  Number of errors:     0
+  Number of warnings:   0
 
-Total memory usage is 140556 kilobytes
+Total memory usage is 135552 kilobytes
 
-Total REAL time to NGDBUILD completion:  1 sec
-Total CPU time to NGDBUILD completion:   1 sec
-
-One or more errors were found during NGDBUILD.  No NGD file will be written.
+Writing NGD file "combo3.ngd" ...
+Total REAL time to NGDBUILD completion:  8 sec
+Total CPU time to NGDBUILD completion:   8 sec
 
 Writing NGDBUILD log file "combo3.bld"...

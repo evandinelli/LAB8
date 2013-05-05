@@ -32,22 +32,26 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity dual_sweep is
     Port ( 
 			clk_in : in  STD_LOGIC;
+			reset : in STD_LOGIC;
 			switch : in  STD_LOGIC_VECTOR (3 downto 0);
 			pan_count_in  : in  STD_LOGIC_VECTOR (7 downto 0);
 			tilt_100_temp : in STD_LOGIC;
 			tilt_inc : out STD_LOGIC;
-         inc_by   : out STD_LOGIC_VECTOR(2 downto 0) :="011"
-			  );
+         inc_by   : out STD_LOGIC_VECTOR(2 downto 0)
+			);
 end dual_sweep;
 
 architecture Behavioral of dual_sweep is
 
 begin
 
-process(clk_in,pan_count_in)
+process(clk_in)
 begin
-
-	if(rising_edge(clk_in)) then
+	
+	if(reset = '1') then
+		tilt_inc <= '0';
+	
+	elsif(rising_edge(clk_in)) then
 		if(switch = "1010") then
 			inc_by <= "101";
 			if(pan_count_in = x"C3") then
@@ -68,4 +72,3 @@ begin
 
 end process;
 end Behavioral;
-
