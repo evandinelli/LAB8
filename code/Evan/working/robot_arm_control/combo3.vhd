@@ -71,7 +71,7 @@ COMPONENT counter_8_bit
 			clk_in : in STD_LOGIC;
           pause : in STD_LOGIC;
 			 inc   : in STD_LOGIC;
-			 inc_by : in STD_LOGIC_VECTOR(2 downto 0) := "011";
+			 dual : in STD_LOGIC;
           reset : in STD_LOGIC;
 			 load  : in STD_LOGIC;
 			 load_vec  : in STD_LOGIC_VECTOR(7 downto 0) := x"96";
@@ -102,7 +102,7 @@ COMPONENT dual_sweep
 			pan_count_in  : in  STD_LOGIC_VECTOR (7 downto 0);
 			tilt_100_temp : in STD_LOGIC;
 			tilt_inc : out STD_LOGIC;
-         inc_by   : out STD_LOGIC_VECTOR(2 downto 0)
+         dual     : out STD_LOGIC
 			);
 END COMPONENT;		  
 
@@ -112,7 +112,7 @@ signal pan_pwm_in, tilt_pwm_in : std_logic_vector(7 downto 0) := x"96";
 signal pan_p, tilt_p, pan_l, tilt_l, tilt_inc_temp : std_logic;
 signal pan_load_vec, tilt_load_vec : std_logic_vector(7 downto 0);
 signal tick_20, tick2_20 : std_logic;
-signal inc_temp : std_logic_vector(2 downto 0);
+signal dual_temp : std_logic;
 
 begin
 
@@ -148,7 +148,7 @@ pan_count: counter_8_bit port map(
 			count_out => pan_pwm_in,
 			load => pan_l,
 			load_vec => pan_load_vec,
-			inc_by => "011"
+			dual => '0'
 );
 
 tilt_count: counter_8_bit port map(
@@ -159,7 +159,7 @@ tilt_count: counter_8_bit port map(
 			count_out => tilt_pwm_in,
 			load => tilt_l,
 			load_vec => tilt_load_vec,
-			inc_by => inc_temp
+			dual => dual_temp
 );
 
 mode_gen : mode_generator port map(
@@ -182,7 +182,7 @@ dual : dual_sweep port map(
 					switch => SW,
 					pan_count_in => pan_pwm_in,
 					tilt_inc => tilt_inc_temp,
-					inc_by => inc_temp,
+					dual => dual_temp,
 					tilt_100_temp => tilt_tick_100
 );
 

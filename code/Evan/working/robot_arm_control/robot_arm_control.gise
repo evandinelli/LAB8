@@ -98,13 +98,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1367710993" xil_pn:in_ck="-553617903158819772" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1367710993">
+    <transform xil_pn:end_ts="1367805773" xil_pn:in_ck="-553617903158819772" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1367805773">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="clk_div.vhd"/>
       <outfile xil_pn:name="combo3.vhd"/>
       <outfile xil_pn:name="combo3_tb.vhd"/>
@@ -129,7 +125,6 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
@@ -200,7 +195,9 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="combo3.cmd_log"/>
@@ -228,6 +225,7 @@
     <transform xil_pn:end_ts="1367712599" xil_pn:in_ck="7807888698044981865" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="4654917501230855387" xil_pn:start_ts="1367712587">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_ngo"/>
@@ -242,6 +240,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
@@ -257,6 +256,7 @@
     <transform xil_pn:end_ts="1367712672" xil_pn:in_ck="-6929307030505777533" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="-5563652517805085498" xil_pn:start_ts="1367712609">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
       <outfile xil_pn:name="combo3.ncd"/>
       <outfile xil_pn:name="combo3.pad"/>
@@ -271,6 +271,7 @@
     <transform xil_pn:end_ts="1367712690" xil_pn:in_ck="4755624692850406" xil_pn:name="TRANEXT_bitFile_spartan3e" xil_pn:prop_ck="287829442711806529" xil_pn:start_ts="1367712672">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="combo3.bgn"/>
       <outfile xil_pn:name="combo3.bit"/>
@@ -283,10 +284,12 @@
     <transform xil_pn:end_ts="1367712704" xil_pn:in_ck="4755624692837552" xil_pn:name="TRAN_impactProgrammingTool" xil_pn:prop_ck="1890673188639090495" xil_pn:start_ts="1367712704">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
     </transform>
     <transform xil_pn:end_ts="1367712672" xil_pn:in_ck="7807888698044981734" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416186" xil_pn:start_ts="1367712666">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
       <outfile xil_pn:name="combo3.twr"/>
       <outfile xil_pn:name="combo3.twx"/>

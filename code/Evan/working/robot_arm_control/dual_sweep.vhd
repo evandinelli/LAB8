@@ -37,7 +37,7 @@ entity dual_sweep is
 			pan_count_in  : in  STD_LOGIC_VECTOR (7 downto 0);
 			tilt_100_temp : in STD_LOGIC;
 			tilt_inc : out STD_LOGIC;
-         inc_by   : out STD_LOGIC_VECTOR(2 downto 0)
+         dual     : out STD_LOGIC
 			);
 end dual_sweep;
 
@@ -45,7 +45,7 @@ architecture Behavioral of dual_sweep is
 
 begin
 
-process(clk_in)
+process(clk_in,pan_count_in)
 begin
 	
 	if(reset = '1') then
@@ -53,14 +53,14 @@ begin
 	
 	elsif(rising_edge(clk_in)) then
 		if(switch = "1010") then
-			inc_by <= "101";
+			dual <= '1';
 			if(pan_count_in = x"C3") then
 				tilt_inc <= '1';
 			else
 				tilt_inc <= '0';
 			end if;
 		else
-			inc_by <= "011";
+			dual <= '0';
 			if(tilt_100_temp = '1') then
 				tilt_inc <= '1';
 			else
