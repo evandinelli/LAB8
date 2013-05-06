@@ -19,7 +19,7 @@ signal count_1 : integer range 0 to 249 := 0; --- not 250
 
 begin
 ----- Method 1: use internal signal count_1
-	process(clk_50M,count_1)
+	process(clk_50M,count_1, reset, clk_int)
 	begin
 		if (reset = '1') then
 			clk_int <= '0';

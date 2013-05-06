@@ -33,7 +33,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity combo3 is
 port(	clk_in		: in std_logic;
 		reset	   	: in std_logic;
-		reset45     : in std_logic :='0';
+		reset45     : in std_logic;
 		SW : in std_logic_vector(3 downto 0);
 		SW_LED : out std_logic_vector(3 downto 0);
 		pan_pwm_out : out std_logic;
@@ -104,7 +104,16 @@ COMPONENT dual_sweep
 			tilt_inc : out STD_LOGIC;
          dual     : out STD_LOGIC
 			);
-END COMPONENT;		  
+END COMPONENT;
+
+COMPONENT debouncer
+		PORT (
+				data_in : in  STD_LOGIC;
+				data_rising_pulse : out  STD_LOGIC;
+				data_falling_pulse : out std_logic;
+				clk : in  STD_LOGIC
+				);
+END COMPONENT;
 
 signal clk_temp  : std_logic;
 signal pan_tick_100,tilt_tick_100 : std_logic;
@@ -112,7 +121,7 @@ signal pan_pwm_in, tilt_pwm_in : std_logic_vector(7 downto 0) := x"96";
 signal pan_p, tilt_p, pan_l, tilt_l, tilt_inc_temp : std_logic;
 signal pan_load_vec, tilt_load_vec : std_logic_vector(7 downto 0);
 signal tick_20, tick2_20 : std_logic;
-signal dual_temp : std_logic;
+signal dual_temp, reset_deb, reset45_deb, reset_falling, reset45_falling : std_logic;
 
 begin
 
@@ -143,7 +152,7 @@ tilt_pwm : pwm port map(
 pan_count: counter_8_bit port map(
 			inc => pan_tick_100,
 			clk_in => clk_temp,
-			reset => reset,
+			reset => reset_deb,
 			pause => pan_p,
 			count_out => pan_pwm_in,
 			load => pan_l,
@@ -154,7 +163,7 @@ pan_count: counter_8_bit port map(
 tilt_count: counter_8_bit port map(
 			inc => tilt_inc_temp,
 			clk_in => clk_temp,
-			reset => reset,
+			reset => reset_deb,
 			pause => tilt_p,
 			count_out => tilt_pwm_in,
 			load => tilt_l,
@@ -164,8 +173,8 @@ tilt_count: counter_8_bit port map(
 
 mode_gen : mode_generator port map(
 					clk_in => clk_temp,
-					reset => reset,
-					reset45 => reset45,
+					reset => reset_deb,
+					reset45 => reset45_deb,
 					sw => SW,
 					pan_pause => pan_p,
 					pan_load => pan_l,
@@ -178,12 +187,26 @@ mode_gen : mode_generator port map(
 
 dual : dual_sweep port map(
 					clk_in => clk_temp,
-					reset => reset,
+					reset => reset_deb,
 					switch => SW,
 					pan_count_in => pan_pwm_in,
 					tilt_inc => tilt_inc_temp,
 					dual => dual_temp,
 					tilt_100_temp => tilt_tick_100
+);
+
+deb90 : debouncer port map(
+					data_in => reset,
+					data_rising_pulse => reset_deb,
+					data_falling_pulse => reset_falling,
+					clk => clk_temp
+);
+
+deb45 : debouncer port map(
+					data_in => reset45,
+					data_rising_pulse => reset45_deb,
+					data_falling_pulse => reset45_falling,
+					clk => clk_temp
 );
 
 LED_20 <= tick_20;

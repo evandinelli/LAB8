@@ -1,6 +1,7 @@
 vhdl work "C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\pwm.vhd"
 vhdl work "C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\mode_generator.vhd"
 vhdl work "C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\dual_sweep.vhd"
+vhdl work "C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\debouncer.vhd"
 vhdl work "C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\counter_8_bit.vhd"
 vhdl work "C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\clk_div.vhd"
 vhdl work "C:\Users\Evan Dinelli\Documents\GitHub\LAB8\code\Evan\working\robot_arm_control\combo3.vhd"

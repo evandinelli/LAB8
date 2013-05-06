@@ -42,12 +42,15 @@
       <association xil_pn:name="BehavioralSimulation"/>
       <association xil_pn:name="Implementation"/>
     </file>
-    <file xil_pn:name="final_tb.vhd" xil_pn:type="FILE_VHDL"/>
     <file xil_pn:name="combo3_tb.vhd" xil_pn:type="FILE_VHDL">
       <association xil_pn:name="BehavioralSimulation"/>
       <association xil_pn:name="PostMapSimulation"/>
       <association xil_pn:name="PostRouteSimulation"/>
       <association xil_pn:name="PostTranslateSimulation"/>
+    </file>
+    <file xil_pn:name="debouncer.vhd" xil_pn:type="FILE_VHDL">
+      <association xil_pn:name="BehavioralSimulation"/>
+      <association xil_pn:name="Implementation"/>
     </file>
   </files>
 

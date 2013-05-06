@@ -4,13 +4,13 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.35 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.36 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> Reading design: combo3.prj
 
@@ -106,19 +106,21 @@ Slice Utilization Ratio Delta      : 5
 *                          HDL Compilation                              *
 =========================================================================
 Compiling vhdl file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/clk_div.vhd" in Library work.
-Architecture behavioral of Entity clk_div is up to date.
+Entity <clk_div> compiled.
+Entity <clk_div> (Architecture <behavioral>) compiled.
 Compiling vhdl file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/pwm.vhd" in Library work.
 Architecture behavioral of Entity pwm is up to date.
 Compiling vhdl file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/counter_8_bit.vhd" in Library work.
 Architecture behavioral of Entity counter_8_bit is up to date.
 Compiling vhdl file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/mode_generator.vhd" in Library work.
-Architecture behavioral of Entity mode_generator is up to date.
+Entity <mode_generator> compiled.
+Entity <mode_generator> (Architecture <behavioral>) compiled.
 Compiling vhdl file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/dual_sweep.vhd" in Library work.
-Entity <dual_sweep> compiled.
-Entity <dual_sweep> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity dual_sweep is up to date.
+Compiling vhdl file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/debouncer.vhd" in Library work.
+Architecture behavioral of Entity debouncer is up to date.
 Compiling vhdl file "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.vhd" in Library work.
-Entity <combo3> compiled.
-Entity <combo3> (Architecture <behavioral>) compiled.
+Architecture behavioral of Entity combo3 is up to date.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
@@ -135,6 +137,8 @@ Analyzing hierarchy for entity <mode_generator> in library <work> (architecture 
 
 Analyzing hierarchy for entity <dual_sweep> in library <work> (architecture <behavioral>).
 
+Analyzing hierarchy for entity <debouncer> in library <work> (architecture <behavioral>).
+
 
 =========================================================================
 *                            HDL Analysis                               *
@@ -143,8 +147,6 @@ Analyzing Entity <combo3> in library <work> (Architecture <behavioral>).
 Entity <combo3> analyzed. Unit <combo3> generated.
 
 Analyzing Entity <clk_div> in library <work> (Architecture <behavioral>).
-WARNING:Xst:819 - "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/clk_div.vhd" line 22: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <reset>
 Entity <clk_div> analyzed. Unit <clk_div> generated.
 
 Analyzing Entity <pwm> in library <work> (Architecture <behavioral>).
@@ -162,6 +164,9 @@ Analyzing Entity <dual_sweep> in library <work> (Architecture <behavioral>).
 WARNING:Xst:819 - "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/dual_sweep.vhd" line 48: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <reset>
 Entity <dual_sweep> analyzed. Unit <dual_sweep> generated.
+
+Analyzing Entity <debouncer> in library <work> (Architecture <behavioral>).
+Entity <debouncer> analyzed. Unit <debouncer> generated.
 
 
 =========================================================================
@@ -204,8 +209,8 @@ Unit <pwm> synthesized.
 Synthesizing Unit <counter_8_bit>.
     Related source file is "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/counter_8_bit.vhd".
     Found 8-bit register for signal <count_temp>.
-    Found 8-bit adder for signal <count_temp$addsub0000> created at line 73.
-    Found 8-bit comparator greatequal for signal <count_temp$cmp_ge0000> created at line 70.
+    Found 8-bit adder for signal <count_temp$addsub0000>.
+    Found 8-bit comparator greatequal for signal <count_temp$cmp_ge0000> created at line 67.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred   1 Comparator(s).
@@ -227,18 +232,31 @@ Unit <mode_generator> synthesized.
 
 Synthesizing Unit <dual_sweep>.
     Related source file is "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/dual_sweep.vhd".
-    Found 3-bit register for signal <inc_by>.
+    Found 1-bit register for signal <dual>.
     Found 1-bit register for signal <tilt_inc>.
     Summary:
-	inferred   4 D-type flip-flop(s).
+	inferred   2 D-type flip-flop(s).
 Unit <dual_sweep> synthesized.
+
+
+Synthesizing Unit <debouncer>.
+    Related source file is "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/debouncer.vhd".
+    Found 1-bit register for signal <data_falling_pulse>.
+    Found 1-bit register for signal <data_rising_pulse>.
+    Found 1-bit register for signal <data_in_delay>.
+    Summary:
+	inferred   3 D-type flip-flop(s).
+Unit <debouncer> synthesized.
 
 
 Synthesizing Unit <combo3>.
     Related source file is "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.vhd".
 WARNING:Xst:646 - Signal <tick2_20> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <reset_falling> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <reset45_falling> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <combo3> synthesized.
 
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 HDL Synthesis Report
@@ -250,9 +268,8 @@ Macro Statistics
  12-bit up counter                                     : 2
  16-bit up counter                                     : 2
  8-bit up counter                                      : 1
-# Registers                                            : 17
- 1-bit register                                        : 12
- 3-bit register                                        : 1
+# Registers                                            : 23
+ 1-bit register                                        : 19
  8-bit register                                        : 4
 # Comparators                                          : 12
  12-bit comparator greatequal                          : 4
@@ -266,7 +283,6 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-WARNING:Xst:1710 - FF/Latch <inc_by_0> (without init value) has a constant value of 1 in block <dual>. This FF/Latch will be trimmed during the optimization process.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -278,8 +294,8 @@ Macro Statistics
  12-bit up counter                                     : 2
  16-bit up counter                                     : 2
  8-bit up counter                                      : 1
-# Registers                                            : 31
- Flip-Flops                                            : 31
+# Registers                                            : 35
+ Flip-Flops                                            : 35
 # Comparators                                          : 12
  12-bit comparator greatequal                          : 4
  12-bit comparator less                                : 2
@@ -291,11 +307,12 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1710 - FF/Latch <inc_by_0> (without init value) has a constant value of 1 in block <dual_sweep>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:2261 - The FF/Latch <5> in Unit <LPM_DFF_18> is equivalent to the following FF/Latch, which will be removed : <3> 
 INFO:Xst:2261 - The FF/Latch <4> in Unit <LPM_DFF_18> is equivalent to the following FF/Latch, which will be removed : <2> 
 INFO:Xst:2261 - The FF/Latch <5> in Unit <LPM_DFF_15> is equivalent to the following FF/Latch, which will be removed : <3> 
 INFO:Xst:2261 - The FF/Latch <4> in Unit <LPM_DFF_15> is equivalent to the following FF/Latch, which will be removed : <2> 
+WARNING:Xst:2677 - Node <deb45/data_falling_pulse> of sequential type is unconnected in block <combo3>.
+WARNING:Xst:2677 - Node <deb90/data_falling_pulse> of sequential type is unconnected in block <combo3>.
 INFO:Xst:2261 - The FF/Latch <pan_load_v_0> in Unit <mode_generator> is equivalent to the following FF/Latch, which will be removed : <pan_load_v_6> 
 INFO:Xst:2261 - The FF/Latch <pan_load_v_1> in Unit <mode_generator> is equivalent to the following FF/Latch, which will be removed : <pan_load_v_7> 
 INFO:Xst:2261 - The FF/Latch <tilt_load_v_0> in Unit <mode_generator> is equivalent to the following FF/Latch, which will be removed : <tilt_load_v_6> 
@@ -313,6 +330,7 @@ WARNING:Xst:2677 - Node <pan_pwm/tick20> of sequential type is unconnected in bl
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block combo3, actual ratio is 2.
+FlipFlop deb90/data_rising_pulse has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -320,8 +338,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 101
- Flip-Flops                                            : 101
+# Registers                                            : 105
+ Flip-Flops                                            : 105
 
 =========================================================================
 
@@ -354,23 +372,24 @@ Cell Usage :
 #      GND                         : 1
 #      INV                         : 14
 #      LUT1                        : 22
-#      LUT2                        : 31
-#      LUT3                        : 67
+#      LUT2                        : 37
+#      LUT3                        : 65
 #      LUT4                        : 42
 #      LUT4_D                      : 4
-#      LUT4_L                      : 3
+#      LUT4_L                      : 1
 #      MUXCY                       : 113
-#      MUXF5                       : 2
 #      VCC                         : 1
 #      XORCY                       : 80
-# FlipFlops/Latches                : 101
+# FlipFlops/Latches                : 105
+#      FD_1                        : 2
 #      FDC                         : 27
 #      FDCE                        : 8
 #      FDCP                        : 8
-#      FDE                         : 38
+#      FDE                         : 37
 #      FDP                         : 4
 #      FDPE                        : 8
 #      FDR                         : 8
+#      FDR_1                       : 3
 # Clock Buffers                    : 2
 #      BUFG                        : 1
 #      BUFGP                       : 1
@@ -384,9 +403,9 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                       96  out of   4656     2%  
- Number of Slice Flip Flops:            101  out of   9312     1%  
- Number of 4 input LUTs:                183  out of   9312     1%  
+ Number of Slices:                       98  out of   4656     2%  
+ Number of Slice Flip Flops:            105  out of   9312     1%  
+ Number of 4 input LUTs:                185  out of   9312     1%  
  Number of IOs:                          16
  Number of bonded IOBs:                  16  out of    232     6%  
  Number of GCLKs:                         2  out of     24     8%  
@@ -413,7 +432,7 @@ Clock Information:
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
 clk_in                             | BUFGP                  | 9     |
-u1/clk_int1                        | BUFG                   | 92    |
+u1/clk_int1                        | BUFG                   | 96    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -422,10 +441,10 @@ Asynchronous Control Signals Information:
 Control Signal                                                    | Buffer(FF name)            | Load  |
 ------------------------------------------------------------------+----------------------------+-------+
 N0(XST_GND:G)                                                     | NONE(pan_pwm/num_clks_0)   | 26    |
-reset                                                             | IBUF                       | 25    |
+deb90/data_rising_pulse(deb90/data_rising_pulse:Q)                | NONE(dual/tilt_inc)        | 25    |
+deb45/data_rising_pulse(deb45/data_rising_pulse:Q)                | NONE(mode_gen/pan_load_v_0)| 4     |
 mode_gen/pan_load_v_1__and0000(mode_gen/pan_load_v_1__and000011:O)| NONE(mode_gen/pan_load_v_1)| 4     |
 mode_gen/tilt_pause_or0000(mode_gen/tilt_pause_or00001:O)         | NONE(mode_gen/pan_load)    | 4     |
-reset45                                                           | IBUF                       | 4     |
 ------------------------------------------------------------------+----------------------------+-------+
 
 Timing Summary:
@@ -433,9 +452,9 @@ Timing Summary:
 Speed Grade: -4
 
    Minimum period: 7.157ns (Maximum Frequency: 139.723MHz)
-   Minimum input arrival time before clock: 4.692ns
+   Minimum input arrival time before clock: 4.664ns
    Maximum output required time after clock: 4.310ns
-   Maximum combinational path delay: 5.473ns
+   Maximum combinational path delay: 5.451ns
 
 Timing Detail:
 --------------
@@ -467,7 +486,7 @@ Delay:               4.851ns (Levels of Logic = 2)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'u1/clk_int1'
   Clock period: 7.157ns (frequency: 139.723MHz)
-  Total number of paths / destination ports: 7901 / 94
+  Total number of paths / destination ports: 7891 / 106
 -------------------------------------------------------------------------
 Delay:               7.157ns (Levels of Logic = 24)
   Source:            tilt_pwm/num_clks100_0 (FF)
@@ -511,9 +530,9 @@ Delay:               7.157ns (Levels of Logic = 24)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'u1/clk_int1'
-  Total number of paths / destination ports: 72 / 17
+  Total number of paths / destination ports: 61 / 19
 -------------------------------------------------------------------------
-Offset:              4.692ns (Levels of Logic = 3)
+Offset:              4.664ns (Levels of Logic = 3)
   Source:            SW<0> (PAD)
   Destination:       dual/tilt_inc (FF)
   Destination Clock: u1/clk_int1 rising
@@ -522,13 +541,13 @@ Offset:              4.692ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            12   1.218   1.136  SW_0_IBUF (SW_LED_0_OBUF)
+     IBUF:I->O            11   1.218   1.108  SW_0_IBUF (SW_LED_0_OBUF)
      LUT4:I0->O            2   0.704   0.622  dual/tilt_inc_cmp_eq00001 (dual/tilt_inc_cmp_eq0000)
      LUT4:I0->O            1   0.704   0.000  dual/tilt_inc_mux000335 (dual/tilt_inc_mux0003)
      FDC:D                     0.308          dual/tilt_inc
     ----------------------------------------
-    Total                      4.692ns (2.934ns logic, 1.758ns route)
-                                       (62.5% logic, 37.5% route)
+    Total                      4.664ns (2.934ns logic, 1.730ns route)
+                                       (62.9% logic, 37.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'u1/clk_int1'
@@ -553,7 +572,7 @@ Offset:              4.310ns (Levels of Logic = 1)
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 4 / 4
 -------------------------------------------------------------------------
-Delay:               5.473ns (Levels of Logic = 2)
+Delay:               5.451ns (Levels of Logic = 2)
   Source:            SW<1> (PAD)
   Destination:       SW_LED<1> (PAD)
 
@@ -561,23 +580,23 @@ Delay:               5.473ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            13   1.218   0.983  SW_1_IBUF (SW_LED_1_OBUF)
+     IBUF:I->O            12   1.218   0.961  SW_1_IBUF (SW_LED_1_OBUF)
      OBUF:I->O                 3.272          SW_LED_1_OBUF (SW_LED<1>)
     ----------------------------------------
-    Total                      5.473ns (4.490ns logic, 0.983ns route)
-                                       (82.0% logic, 18.0% route)
+    Total                      5.451ns (4.490ns logic, 0.961ns route)
+                                       (82.4% logic, 17.6% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 20.00 secs
-Total CPU time to Xst completion: 19.29 secs
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 3.39 secs
  
 --> 
 
-Total memory usage is 244936 kilobytes
+Total memory usage is 249556 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    9 (   0 filtered)
-Number of infos    :    8 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :    9 (   0 filtered)
 

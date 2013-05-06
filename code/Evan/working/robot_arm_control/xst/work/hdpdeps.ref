@@ -1,46 +1,53 @@
-V3 23
-FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/clk_div.vhd" 2013/04/30.13:50:17 M.53d
-EN work/clk_div 1367712570 \
+V3 27
+FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/clk_div.vhd" 2013/05/06.17:37:19 M.53d
+EN work/clk_div 1367879917 \
       FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/clk_div.vhd" \
       PB ieee/std_logic_1164 1270894585
-AR work/clk_div/Behavioral 1367712571 \
+AR work/clk_div/Behavioral 1367879918 \
       FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/clk_div.vhd" \
-      EN work/clk_div 1367712570
-FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.vhd" 2013/05/04.19:08:17 M.53d
-EN work/combo3 1367712580 \
+      EN work/clk_div 1367879917
+FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.vhd" 2013/05/06.17:31:55 M.53d
+EN work/combo3 1367879929 \
       FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.vhd" \
       PB ieee/std_logic_1164 1270894585 PB ieee/STD_LOGIC_UNSIGNED 1270894587
-AR work/combo3/Behavioral 1367712581 \
+AR work/combo3/Behavioral 1367879930 \
       FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.vhd" \
-      EN work/combo3 1367712580 CP clk_div CP pwm CP counter_8_bit CP mode_generator \
-      CP dual_sweep
-FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/counter_8_bit.vhd" 2013/05/04.17:56:20 M.53d
-EN work/counter_8_bit 1367712574 \
+      EN work/combo3 1367879929 CP clk_div CP pwm CP counter_8_bit CP mode_generator \
+      CP dual_sweep CP debouncer
+FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/counter_8_bit.vhd" 2013/05/06.17:03:02 M.53d
+EN work/counter_8_bit 1367879921 \
       FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/counter_8_bit.vhd" \
       PB ieee/std_logic_1164 1270894585 PB ieee/STD_LOGIC_UNSIGNED 1270894587 \
       PB ieee/NUMERIC_STD 1270894586
-AR work/counter_8_bit/Behavioral 1367712575 \
+AR work/counter_8_bit/Behavioral 1367879922 \
       FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/counter_8_bit.vhd" \
-      EN work/counter_8_bit 1367712574
-FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/dual_sweep.vhd" 2013/05/04.19:09:22 M.53d
-EN work/dual_sweep 1367712578 \
+      EN work/counter_8_bit 1367879921
+FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/debouncer.vhd" 2013/05/06.17:33:55 M.53d
+EN work/debouncer 1367879927 \
+      FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/debouncer.vhd" \
+      PB ieee/std_logic_1164 1270894585
+AR work/debouncer/Behavioral 1367879928 \
+      FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/debouncer.vhd" \
+      EN work/debouncer 1367879927
+FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/dual_sweep.vhd" 2013/05/06.17:03:02 M.53d
+EN work/dual_sweep 1367879925 \
       FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/dual_sweep.vhd" \
       PB ieee/std_logic_1164 1270894585
-AR work/dual_sweep/Behavioral 1367712579 \
+AR work/dual_sweep/Behavioral 1367879926 \
       FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/dual_sweep.vhd" \
-      EN work/dual_sweep 1367712578
-FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/mode_generator.vhd" 2013/05/04.16:36:17 M.53d
-EN work/mode_generator 1367712576 \
+      EN work/dual_sweep 1367879925
+FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/mode_generator.vhd" 2013/05/06.17:37:19 M.53d
+EN work/mode_generator 1367879923 \
       FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/mode_generator.vhd" \
       PB ieee/std_logic_1164 1270894585
-AR work/mode_generator/Behavioral 1367712577 \
+AR work/mode_generator/Behavioral 1367879924 \
       FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/mode_generator.vhd" \
-      EN work/mode_generator 1367712576
-FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/pwm.vhd" 2013/05/04.15:25:48 M.53d
-EN work/pwm 1367712572 \
+      EN work/mode_generator 1367879923
+FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/pwm.vhd" 2013/05/06.17:03:03 M.53d
+EN work/pwm 1367879919 \
       FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/pwm.vhd" \
       PB ieee/std_logic_1164 1270894585 PB ieee/STD_LOGIC_UNSIGNED 1270894587 \
       PB ieee/NUMERIC_STD 1270894586
-AR work/pwm/Behavioral 1367712573 \
+AR work/pwm/Behavioral 1367879920 \
       FL "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/pwm.vhd" \
-      EN work/pwm 1367712572
+      EN work/pwm 1367879919
