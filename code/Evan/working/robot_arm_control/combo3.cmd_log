@@ -92,3 +92,8 @@ map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o combo3_
 par -w -intstyle ise -ol high -t 1 combo3_map.ncd combo3.ncd combo3.pcf 
 trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml combo3.twx combo3.ncd -o combo3.twr combo3.pcf -ucf LAB8_spartan3E_UCF.ucf 
 xst -intstyle ise -ifn "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.xst" -ofn "C:/Users/Evan Dinelli/Documents/GitHub/LAB8/code/Evan/working/robot_arm_control/combo3.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc LAB8_spartan3E_UCF.ucf -p xc3s500e-fg320-4 "combo3.ngc" combo3.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o combo3_map.ncd combo3.ngd combo3.pcf 
+par -w -intstyle ise -ol high -t 1 combo3_map.ncd combo3.ncd combo3.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml combo3.twx combo3.ncd -o combo3.twr combo3.pcf -ucf LAB8_spartan3E_UCF.ucf 
+bitgen -intstyle ise -f combo3.ut combo3.ncd 

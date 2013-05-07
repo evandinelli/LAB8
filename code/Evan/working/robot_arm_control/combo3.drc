@@ -1,7 +1,7 @@
 Release 12.1 Drc M.53d (nt64)
 Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 
-Sat May 04 19:11:18 2013
+Tue May 07 11:52:38 2013
 
 drc -z combo3.ncd combo3.pcf
 
